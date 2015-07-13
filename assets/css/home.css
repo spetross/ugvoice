@@ -1,0 +1,154 @@
+
+.home .header.uk-block {
+    background: #0fb492 url(../img/topography3.jpg);
+    position: relative;
+    height: 480px;
+    border-bottom: solid 10px rgba(221, 221, 221, 0.4);
+}
+
+.home .header.uk-block #header-cover {
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    height: 480px;
+    width: 100%;
+}
+
+.home .header.uk-block .left {
+    padding-left: 0;
+}
+
+.home .header.uk-block .right {
+    height: 360px;
+    position: relative;
+}
+
+.home .header.uk-block .title {
+    color: #000000;
+    font-family: Tahoma, Segoe UI, Arial, sans-serif;
+    color: white;
+    text-shadow: 0 0 3px grey;
+    font-size: 27px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.home .header.uk-block .ui.header > .content,
+.home .header.uk-block .ui.header > .content .sub.header {
+    color: #FFFFFF !important;
+}
+
+.home .header.uk-block .welcome-notes .header .icon.bordered {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: solid 1.5px #FFFFFF;
+    padding: 10px 3px 3px;
+    box-shadow: none;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#signup-form-modal .uk-modal-dialog {
+    max-width: 450px;
+}
+
+.home .header.uk-block .right .signup-form {
+    background: rgba(15, 180, 146, 0.9);
+    color: #FFFFFF;
+    padding: 10px 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.home .header.uk-block .right .signup-form .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.home .header.uk-block .login-social-links a {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.home .header.uk-block .login-social-links a:hover {
+    opacity: 0.7;
+}
+
+.home .header.uk-block .login-social-links .facebook {
+    border: solid 1px #4B77BE;
+    background: #4B77BE;
+    color: #ffffff;
+}
+
+.home .header.uk-block .login-social-links .facebook:hover {
+    background: #FFFFFF;
+    color: #4B77BE;
+}
+
+.home .header.uk-block .login-social-links .twitter {
+    background: #3498DB;
+    border: solid 1px #3498DB;
+    color: #ffffff;
+}
+
+.home .header.uk-block .login-social-links .twitter:hover {
+    background: #ffffff;
+    color: #3498DB;
+}
+
+.home .header.uk-block .login-social-links .google {
+    border: solid 1px #F25757;
+    background: #F25757;
+    color: #ffffff;
+}
+
+.home .header.uk-block .login-social-links .google:hover {
+    background: #FFFFFF;
+    color: #F25757;
+}
+
+.home .header.uk-block .login-social-links .email {
+    border: solid 1px #F56F6C;
+    background: #F56F6C;
+    color: #FFFFFF;
+}
+
+.home .header.uk-block .login-social-links .email:hover {
+    background: #F4D03F;
+    color: #FFFFFF;
+}
+
+@media (max-width: 767px) {
+    .home .header.uk-block {
+        height: auto;
+        padding-top: 0;
+    }
+
+    .home .header.uk-block .uk-container {
+        width: 100%;
+    }
+
+    .home .header.uk-block .left, .home .header.uk-block .right {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+
+    #header-cover {
+        height: 100% !important
+    }
+}
+
+.home #home-clients-block {
+    background: #E2E2E2;
+    border-bottom: solid 10px #D9D9D9;
+}

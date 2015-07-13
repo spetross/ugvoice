@@ -1,0 +1,177 @@
+
+.dropdown-menu {
+    border: 1px solid #ccc !important;
+    -webkit-border-radius: 2px !important;
+    -webkit-background-clip: padding-box !important;
+    -moz-border-radius: 2px !important;
+    -moz-background-clip: padding !important;
+    border-radius: 2px !important;
+    background-clip: padding-box !important;
+    -webkit-box-shadow: 0 2px 40px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0 2px 40px rgba(0, 0, 0, .4);
+    box-shadow: 0 2px 40px rgba(0, 0, 0, .4);
+    -webkit-transition: opacity .218s;
+    -moz-transition: opacity .218s;
+    -o-transition: opacity .218s;
+    transition: opacity .218s;
+    margin: 1px 0 0;
+    min-width: 170px
+}
+
+.dropdown-menu .dropdown-icon {
+    display: inline-block;
+    font-size: 13px;
+    margin-right: 5px
+}
+
+.dropdown-menu > li > a {
+    font-size: 13px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-bottom: 1px;
+    margin-top: 1px
+}
+
+.dropdown-menu > li > a .dropdown-expand {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 13px
+}
+
+.dropdown-menu > li > a .badge, .dropdown-menu > li > a .label {
+    font-size: 10px !important
+}
+
+.dropdown-menu > li > a .label {
+    padding: 3px 6px 5px 6px
+}
+
+.dropdown-menu > .dropdown-menu {
+    -webkit-border-radius: 2px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 2px;
+    -moz-background-clip: padding;
+    border-radius: 2px;
+    background-clip: padding-box
+}
+
+.dropdown-menu > .dropdown-menu > a:after {
+    margin-right: -5px
+}
+
+.dropdown-menu .divider {
+    background-color: #ebebeb;
+    margin-bottom: -1px
+}
+
+.dropdown-menu.pull-right {
+    left: auto;
+    right: 0
+}
+
+.dropdown-menu.dropdown-arrow.pull-right:before {
+    left: auto;
+    right: 9px
+}
+
+.dropdown-menu.dropdown-arrow:before {
+    border-bottom: 7px solid #fff;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    content: '';
+    display: inline-block;
+    left: 9px;
+    position: absolute;
+    top: -7px
+}
+
+.dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu li a:active, .dropdown-menu li.active a, .dropdown-menu li.active a:hover, .dropdown-menu .dropdown-submenu:hover > a, .nav-tabs .dropdown-menu li > a:focus {
+    background: #ebebeb;
+    color: #262626
+}
+
+.dropdown-info li a:hover, .dropdown-info li a:focus, .dropdown-info li a:active, .dropdown-info li.active a, .dropdown-info li.active a:hover, .dropdown-info .dropdown-submenu:hover > a, .nav-tabs .dropdown-info li > a:focus {
+    background: #57b5e3;
+    color: #fff
+}
+
+.dropdown-primary li a:hover, .dropdown-primary li a:focus, .dropdown-primary li a:active, .dropdown-primary li.active a, .dropdown-primary li.active a:hover, .dropdown-primary .dropdown-submenu:hover > a, .nav-tabs .dropdown-primary li > a:focus {
+    background: #4374e0;
+    color: #fff
+}
+
+.dropdown-success li a:hover, .dropdown-success li a:focus, .dropdown-success li a:active, .dropdown-success li.active a, .dropdown-success li.active a:hover, .dropdown-success .dropdown-submenu:hover > a, .nav-tabs .dropdown-success li > a:focus {
+    background: #53a93f;
+    color: #fff
+}
+
+.dropdown-warning li a:hover, .dropdown-warning li a:focus, .dropdown-warning li a:active, .dropdown-warning li.active a, .dropdown-warning li.active a:hover, .dropdown-warning .dropdown-submenu:hover > a, .nav-tabs .dropdown-warning li > a:focus {
+    background: #f4b400;
+    color: #fff
+}
+
+.dropdown-danger li a:hover, .dropdown-danger li a:focus, .dropdown-danger li a:active, .dropdown-danger li.active a, .dropdown-danger li.active a:hover, .dropdown-danger .dropdown-submenu:hover > a, .nav-tabs .dropdown-danger li > a:focus {
+    background: #d73d32;
+    color: #fff
+}
+
+.dropdown-inverse li a:hover, .dropdown-inverse li a:focus, .dropdown-inverse li a:active, .dropdown-inverse li.active a, .dropdown-inverse li.active a:hover, .dropdown-inverse .dropdown-submenu:hover > a, .nav-tabs .dropdown-inverse li > a:focus {
+    background: #262626;
+    color: #fff
+}
+
+.dropdown-blue li a:hover, .dropdown-blue li a:focus, .dropdown-blue li a:active, .dropdown-blue li.active a, .dropdown-blue li.active a:hover, .dropdown-blue .dropdown-submenu:hover > a, .nav-tabs .dropdown-blue li > a:focus {
+    background: #5db2ff;
+    color: #fff
+}
+
+.dropdown-blueberry li a:hover, .dropdown-blueberry li a:focus, .dropdown-blueberry li a:active, .dropdown-blueberry li.active a, .dropdown-blueberry li.active a:hover, .dropdown-blueberry .dropdown-submenu:hover > a, .nav-tabs .dropdown-blueberry li > a:focus {
+    background: #6f85bf;
+    color: #fff
+}
+
+.dropdown-palegreen li a:hover, .dropdown-palegreen li a:focus, .dropdown-palegreen li a:active, .dropdown-palegreen li.active a, .dropdown-palegreen li.active a:hover, .dropdown-palegreen .dropdown-submenu:hover > a, .nav-tabs .dropdown-palegreen li > a:focus {
+    background: #a0d468;
+    color: #fff
+}
+
+.dropdown-orange li a:hover, .dropdown-orange li a:focus, .dropdown-orange li a:active, .dropdown-orange li.active a, .dropdown-orange li.active a:hover, .dropdown-orange .dropdown-submenu:hover > a, .nav-tabs .dropdown-orange li > a:focus {
+    background: #fb6e52;
+    color: #fff
+}
+
+.dropdown-darkorange li a:hover, .dropdown-darkorange li a:focus, .dropdown-darkorange li a:active, .dropdown-darkorange li.active a, .dropdown-darkorange li.active a:hover, .dropdown-darkorange .dropdown-submenu:hover > a, .nav-tabs .dropdown-darkorange li > a:focus {
+    background: #ed4e2a;
+    color: #fff
+}
+
+.dropdown-magenta li a:hover, .dropdown-magenta li a:focus, .dropdown-magenta li a:active, .dropdown-magenta li.active a, .dropdown-magenta li.active a:hover, .dropdown-magenta .dropdown-submenu:hover > a, .nav-tabs .dropdown-magenta li > a:focus {
+    background: #bc5679;
+    color: #fff
+}
+
+.dropdown-purple li a:hover, .dropdown-purple li a:focus, .dropdown-purple li a:active, .dropdown-purple li.active a, .dropdown-purple li.active a:hover, .dropdown-purple .dropdown-submenu:hover > a, .nav-tabs .dropdown-purple li > a:focus {
+    background: #7e3794;
+    color: #fff
+}
+
+.dropdown-maroon li a:hover, .dropdown-maroon li a:focus, .dropdown-maroon li a:active, .dropdown-maroon li.active a, .dropdown-maroon li.active a:hover, .dropdown-maroon .dropdown-submenu:hover > a, .nav-tabs .dropdown-maroon li > a:focus {
+    background: #981b48;
+    color: #fff
+}
+
+.dropdown-hover {
+    position: relative
+}
+
+.dropdown-hover:hover > .dropdown-menu {
+    display: block;
+    left: 100%;
+    top: -2px
+}
+
+.dropdown-hover.dropup:hover > .dropdown-menu {
+    bottom: 0;
+    top: auto
+}

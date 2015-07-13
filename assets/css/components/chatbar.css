@@ -1,0 +1,187 @@
+.page-chatbar {
+    background-color: #fff;
+}
+
+.page-chatbar .chatbar-contacts {
+    height: 100%
+}
+
+.page-chatbar .chatbar-messages {
+    height: 100%
+}
+
+.page-chatbar .chatbar-messages .messages-contact {
+    height: 85px;
+    padding: 10px;
+    position: relative;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #e5e5e5
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-avatar {
+    display: inline-block;
+    width: 65px;
+    height: 65px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-avatar img {
+    width: 65px;
+    height: 65px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-info {
+    display: inline-block;
+    vertical-align: bottom;
+    padding-left: 5px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-name {
+    font-size: 1em;
+    padding-bottom: 2px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status {
+    font-size: .8em;
+    margin-bottom: 2px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .online, .page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .offline {
+    display: inline-block;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .online {
+    background-color: #a0d468
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .offline {
+    background-color: #d73d32
+}
+
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .status {
+    display: inline-block;
+    margin-left: 4px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .last-chat-time {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    font-size: .8em
+}
+
+.page-chatbar .chatbar-messages .messages-contact .back {
+    position: absolute;
+    top: 14px;
+    right: 14px
+}
+
+.page-chatbar .chatbar-messages .messages-contact .back:hover {
+    cursor: pointer
+}
+
+.page-chatbar .chatbar-messages .messages-contact .back i {
+    font-size: 22px;
+    color: #2dc3e8
+}
+
+.page-chatbar .chatbar-messages .messages-list {
+    list-style: none;
+    padding: 10px 0;
+    overflow: auto
+}
+
+.page-chatbar .chatbar-messages .messages-list .message {
+    padding: 10px 15px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message .message-info {
+    height: 18px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message .message-info .bullet, .page-chatbar .chatbar-messages .messages-list .message .message-info .contact-name, .page-chatbar .chatbar-messages .messages-list .message .message-info .message-time {
+    display: inline-block
+}
+
+.page-chatbar .chatbar-messages .messages-list .message .message-info .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #a0d468;
+    margin-right: 5px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message .message-info .contact-name {
+    font-weight: bold;
+    margin-right: 5px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message .message-info .message-time {
+    font-size: .8em;
+    color: #666
+}
+
+.page-chatbar .chatbar-messages .messages-list .message .message-body {
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #a0d468;
+    color: #fff;
+    padding: 10px;
+    position: relative;
+    margin-right: 10%
+}
+
+.page-chatbar .chatbar-messages .messages-list .message .message-body:before {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    content: '';
+    top: -14px;
+    left: 10px;
+    border-top-width: 0;
+    border-bottom-color: #a0d468;
+    border-width: 7px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-info .bullet, .page-chatbar .chatbar-messages .messages-list .message.reply .message-info .contact-name, .page-chatbar .chatbar-messages .messages-list .message.reply .message-info .message-time {
+    float: right;
+    margin-right: 0;
+    margin-left: 10px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-info .bullet {
+    background-color: #5db2ff;
+    margin-top: 8px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-info .message-time {
+    margin-top: 2px
+}
+
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-body {
+    background-color: #5db2ff;
+    margin-left: 10%;
+    margin-right: 0
+}
+
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-body:before {
+    border-bottom-color: #5db2ff;
+    right: 10px;
+    left: auto
+}
+
+.page-chatbar .chatbar-messages .send-message {
+    padding: 15px;
+    background-color: #f3f3f3;
+    /*position:absolute;*/
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 120px;
+    border-top: 1px solid #e5e5e5
+}
