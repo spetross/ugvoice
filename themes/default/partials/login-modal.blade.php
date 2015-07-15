@@ -1,7 +1,6 @@
-<div id="login-modal" class="ui small modal">
-    <i class="close icon"></i>
-
-    <div class="content">
+<div id="login-modal" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
         <form class="ui fluid login form" method="POST"
               action="{{ action('LoginController@postLogin') }}?redirect={{Request::getUri()}}"
               data-redirect="{{Request::getUri()}}">

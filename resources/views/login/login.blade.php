@@ -1,15 +1,12 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column" style="max-width: 450px">
-        <h2 class="ui teal image header">
+        <h2 class="ui red image header">
             <i class="sign in icon"></i>
-
-            <div class="content">
-                Log-in to your account
-            </div>
+            Log-in to your account
         </h2>
-        @include('layout.flash')
+        <div class="uk-text-left">@include('layout.flash')</div>
         <form class="ui large form" method="post">
-            <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="ui stacked segment">
                 <div class="field">
@@ -24,7 +21,7 @@
                         <input type="password" name="password" placeholder="Password">
                     </div>
                 </div>
-                <button type="submit" class="ui fluid large teal submit button">Login</button>
+                <button type="submit" class="uk-button uk-button-primary uk-width-1-1">Login</button>
             </div>
 
             <div class="ui error message"></div>

@@ -52,6 +52,9 @@ class MessageConversationRepository
             })->first();
     }
 
+    /**
+     * @return \app\MessageConversation
+     */
     public function lastConversation()
     {
         $conversations = $this->listAll(1);
@@ -59,16 +62,15 @@ class MessageConversationRepository
         foreach ($conversations as $conversation) {
             return $conversation;
         }
-
-        return false;
     }
 
     public function listAll($limit = null)
     {
         $userid = \Auth::user()->id;
-        $query = $this->model->with('userOne', 'userTwo')
+        $query = $this->model->query()->with('userOne', 'userTwo')
             ->where('user1', '=', $userid)
-            ->orWhere('user2', '=', $userid)->orderBy('updated_at', 'desc');
+            ->orWhere('user2', '=', $userid)
+            ->orderBy('updated_at', 'desc');
 
         if (!$limit) return $query = $query->get();
 

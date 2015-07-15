@@ -14,7 +14,7 @@
 
 <div id="main-container" class="pusher">
     <div class="full height margin-bottom-30">
-        <div class="ui container padding-top-20">
+        <div class="ui main container padding-top-20">
             {!! Theme::content() !!}
         </div>
     </div>

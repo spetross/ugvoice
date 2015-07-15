@@ -11,24 +11,42 @@ use Laracasts\Presenter\Presenter;
 class UserPresenter extends Presenter
 {
 
+    /**
+     * Get a user id or username
+     * @return string
+     */
+    public function getId()
+    {
+        if($this->entity->username)
+            return strtolower($this->entity->username);
+        return $this->entity->id;
+    }
 
     /**
      * Get the user's name.
      *
      * @return string
      */
-    public function name()
+    /**
+     * Format user fullname correctly
+     *
+     * @return string
+     */
+    public function fullName()
     {
-        return $this->entity->first_name . ' ' . $this->wrappedObject->last_name;
+        $name = (String) $this->entity->name;
+        return ucwords($name);
     }
 
 
-    public function photo()
+
+    public function getAvatar($size = 50)
     {
-        if ($this->entity->avatar) {
-            return $this->wrappedObject->avatar->path;
-        }
-        return asset('img/nophoto_user_thumb_icon.png');
+        $char = strtolower(substr($this->entity->name, 0, 1));
+        if ($this->entity->avatar)
+            return $this->avatar->getThumb($size, $size);
+        else
+            return asset('assets/img/avatar/' . $char . '/' . $size . '.png');
     }
 
     /**

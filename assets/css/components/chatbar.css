@@ -45,7 +45,8 @@
     margin-bottom: 2px
 }
 
-.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .online, .page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .offline {
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .online,
+.page-chatbar .chatbar-messages .messages-contact .contact-info .contact-status .offline {
     display: inline-block;
     border-radius: 50%;
     width: 8px;
@@ -101,7 +102,9 @@
     height: 18px
 }
 
-.page-chatbar .chatbar-messages .messages-list .message .message-info .bullet, .page-chatbar .chatbar-messages .messages-list .message .message-info .contact-name, .page-chatbar .chatbar-messages .messages-list .message .message-info .message-time {
+.page-chatbar .chatbar-messages .messages-list .message .message-info .bullet,
+.page-chatbar .chatbar-messages .messages-list .message .message-info .contact-name,
+.page-chatbar .chatbar-messages .messages-list .message .message-info .message-time {
     display: inline-block
 }
 
@@ -147,7 +150,9 @@
     border-width: 7px
 }
 
-.page-chatbar .chatbar-messages .messages-list .message.reply .message-info .bullet, .page-chatbar .chatbar-messages .messages-list .message.reply .message-info .contact-name, .page-chatbar .chatbar-messages .messages-list .message.reply .message-info .message-time {
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-info .bullet,
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-info .contact-name,
+.page-chatbar .chatbar-messages .messages-list .message.reply .message-info .message-time {
     float: right;
     margin-right: 0;
     margin-left: 10px

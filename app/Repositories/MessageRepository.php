@@ -38,25 +38,23 @@ class MessageRepository
      */
     public function send($userid, $text, $image = null, $fromUserid = null)
     {
-        $fromUserid = ($fromUserid) ? $fromUserid : \Auth::user()->id;
+        $fromUserid = ($fromUserid) ? $fromUserid : \Auth::id();
 
-        if (!$this->canSendEachOther($userid, $fromUserid)) return false;
+        //if (!$this->canSendEachOther($userid, $fromUserid)) return false;
 
         $conversation = $this->conversationRepository->ensureConnection($userid, $fromUserid);
 
-        $photo = '';
-        if ($image) {
-            $photo = $this->fileProvider->findById($image);
-        }
-
         $message = $this->model->newInstance();
-        $message->text = sanitizeText($text);
-        $message->sender = sanitizeText($fromUserid);
-        $message->receiver = sanitizeText($userid);
+        $message->text = e($text);
+        $message->sender = e($fromUserid);
+        $message->receiver = e($userid);
         $message->conversation_id = $conversation->id;
         $message->save();
 
-        $message->image()->save($photo);
+        if ($image) {
+            $photo = $this->fileProvider->findById($image);
+            $message->image()->save($photo);
+        }
 
         $this->event->fire('message.send', [$message]);
 
@@ -112,10 +110,10 @@ class MessageRepository
             ->count();
     }
 
-    public function getList($userid, $take = 5, $offset = 0, $time = null, $ignoreIds = null, $ignoreUserids = null)
+    public function getList($userid, $take = 5)
     {
         $sender = $userid;
-        $receiver = \Auth::user()->id;
+        $receiver = \Auth::id();
 
         $query = $this->model->with('senderUser', 'receiverUser')
             ->where(function ($query) use ($sender, $receiver) {
@@ -128,45 +126,43 @@ class MessageRepository
                 });
             });
 
-        if ($ignoreUserids) {
-            $query = $query->whereNotIn('sender', $ignoreUserids)
-                ->where('seen', '=', '0');
+
+        $query = $query->latest()->paginate($take);
+        if(!$query->isEmpty()) {
+            $firstMessage = $query->first();
+            $lastMessage = $query->last();
+            session(['firstMessage' => $firstMessage->id, 'lastMessage' => $lastMessage->id]);
         }
-
-        if ($ignoreIds) {
-            $query = $query->whereNotIn('id', $ignoreIds);
-        }
-
-        if ($time) {
-            $query = $query->where('sender', '!=', \Auth::user()->id);
-            $query = $query->where(function ($query) use ($time) {
-                if ($time != 'nill') $query->where('created_at', '>', $time);
-
-                if ($time != 'nill') {
-                    $query->orWhere('seen', '=', '0');
-                } else {
-                    $query->where('seen', '=', '0');
-                }
-
-            });
-
-        }
-
-        $query = $query->orderBy('id', 'desc')
-            ->skip($offset)
-            ->take($take)
-            ->get();
-
         return $query;
     }
 
-    public function getNewList($ignoreIds, $limit = 10)
+    /**
+     * @param $userid
+     * @param int $limit
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getNewList($userid)
     {
-        $userid = \Auth::user()->id;
+        $sender = $userid;
+        $receiver = \Auth::id();
 
-        return $this->model->where('receiver', '=', $userid)
-            ->whereNotIn('sender', $ignoreIds)
-            ->where('seen', '=', 0)->orderBy('id', 'desc')->take($limit)->get();
+        $query = $this->model->with('senderUser', 'receiverUser')
+            ->where(function ($query) use ($sender, $receiver) {
+                $query->where(function ($message) use ($sender, $receiver) {
+                    $message->where('sender', '=', $sender)
+                        ->where('receiver', '=', $receiver);
+                })->orWhere(function ($message) use ($sender, $receiver) {
+                    $message->where('sender', '=', $receiver)
+                        ->where('receiver', '=', $sender);
+                });
+            });
+
+        $query = $query->latest()->get();
+        $filter = range(session('firstMessage'), 1);
+        $messages = $query->except($filter);
+        $firstMessage = $query->first();
+        session(['firstMessage' => $firstMessage->id]);
+        return $messages;
     }
 
     public function get($id)

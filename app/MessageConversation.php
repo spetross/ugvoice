@@ -30,16 +30,16 @@ class MessageConversation extends Model
 
     public function userOne()
     {
-        return $this->belongsTo('app\\Models\\User', 'user1');
+        return $this->belongsTo('app\\User', 'user1');
     }
 
     public function userTwo()
     {
-        return $this->belongsTo('app\\Models\\User', 'user2');
+        return $this->belongsTo('app\\User', 'user2');
     }
 
     public function messages()
     {
-        return $this->hasMany('app\\Models\\Message', 'conversation_id')->orderBy('id', 'desc');
+        return $this->hasMany('app\\Message', 'conversation_id')->orderBy('id', 'desc');
     }
 }

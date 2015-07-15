@@ -1,4 +1,4 @@
-@import "../vendor/sui/semantic.css";
+@import "../vendor/sui/semantic.min.css";
 @import "almost-flat/uikit";
 
 /* theme: Almost Flat */
@@ -7,8 +7,11 @@
 // Typography
 //
 
+@base-body-font-family: "Asap";
+@base-heading-font-family: "Asap";
+
 @global-link-color: #cc6788;
-@global-link-hover-color: #a0576f;
+@global-link-hover-color: #e7aeab;
 
 //
 // Buttons, Navs & Badges
@@ -40,3 +43,7 @@
 //
 
 @icon-font-path: "../fonts";
+
+.uk-close::after {
+    font-family: Icons;
+}

@@ -23,7 +23,7 @@ Theme::asset()->container()->add('profile', 'assets/css/components/profile.css')
 <div id="main-container" class="pusher">
     <div class="full height margin-bottom-30 padding-top-20">
         <div class="ui two stackable column container grid">
-            <div class="ui container  profile-container">
+            <div class="ui main container  profile-container">
                 <div class="ui teal raised segment profile-header uk-margin-remove">
                     <div class="ui grid">
                         <div class="three wide computer four wide tablet sixteen wide mobile column text-center">

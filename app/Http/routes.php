@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('user', ['as' => 'user', 'uses' => 'UserController@profile']);
     Route::get('user/edit', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
     Route::get('user/messages', ['as' => 'messages', 'uses' => 'MessageController@index']);
+    Route::post('user/messages', ['as' => 'message.send', 'uses' => 'MessageController@onSend']);
     Route::get('user/privacy', ['as' => 'user.privacy', 'uses' => 'UserController@privacy']);
     Route::post('user/update', 'UserController@update');
 

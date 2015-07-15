@@ -19,8 +19,8 @@ $uploadConfig = [
 
     <div class="field form-actions padding-5 uk-hidden">
         <div class="ui checkbox margin-top-10 margin-left-10">
-            <input type="checkbox" id="private_post" name="post_private" tabindex="0">
-            <label for="private_post">Hide identity</label>
+            <input type="checkbox" id="private_post" name="post_private" tabindex="0" title="Hide identity">
+            <label>Hide identity</label>
         </div>
         <button type="submit" class="ui small right floated submit primary icon button">Post <i class="check icon"></i>
         </button>

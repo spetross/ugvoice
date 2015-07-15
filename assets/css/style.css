@@ -1,12 +1,10 @@
-@import url('uikit.min.css');
 @import url('pace.css');
 @import url('components/helpers.css');
 @import url('components/base.css');
+@import url('components/widgets.css');
 
 body {
-    color: #404040;
     background: #ecedef url("img/bg.png") 0 0 repeat;
-    font-size: 13px;
     height: auto;
     min-height: 100%;
 }

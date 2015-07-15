@@ -24,24 +24,28 @@ class MessageController extends AppController
         $this->conversationRepository = $messageConversationRepository;
         $this->userRepository = $userRepository;
         parent::__construct();
-        $this->theme->layout('user.private');
         $this->theme->share('user', \Auth::user());
+        $this->user = \Auth::user();
     }
 
 
-    public function send()
+    public function OnSend()
     {
-        $userid = \Input::get('userid');
-        $text = \Input::get('text');
-        $type = \Input::get('type');
+        $userId = $this->request->input('user_id');
+        $text = $this->request->input('message');
+        $type = $this->request->input('type');
 
-        $message = $this->messageRepository->send($userid, $text);
+        if(empty($text)) {
+            return ['alert' => 'No Message specified'];
+        }
+
+        $message = $this->messageRepository->send($userId, $text);
 
         if ($type == 'alert') {
             return trans('message.sent');
         } else {
             if ($message) {
-                return $this->theme->section('messages.display', ['message' => $message]);
+                return ['Message' => view('messages.message', ['message' => $message])->render()];
             }
             return 0;
         }
@@ -63,31 +67,52 @@ class MessageController extends AppController
         ]);
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     */
     public function index()
     {
-        $userid = \Input::get('user');
-
-        if ($userid) {
-            $user = $this->userRepository->findByIdUsername($userid);
-            if ($user) $userid = $user->id;
-            else return \Redirect::route('messages');
-        }
-        if ($userid == \Auth::id()) return \Redirect::route('messages');
-
-        if (empty($userid)) {
+        $user = null;
+        if($this->request->has('user')) {
+            $user = $this->userRepository->findByIdUsername(e($this->request->query('user')));
+            if(!$user)
+                return redirect()->route('messages');
+            if($user->id == $this->user->id)
+                return redirect()->route('messages');
+        } else {
             $lastConversation = $this->conversationRepository->lastConversation();
             if ($lastConversation) {
-                $userid = $lastConversation->present()->theUser()->id;
-
-                $this->messageRepository->markAllByUser($userid);
+                $user = $lastConversation->present()->theUser();
+                $this->messageRepository->markAllByUser($user->id);
             }
         }
+
         $this->theme->set('title', trans('message.messages'));
-        $this->theme->asset()->container('ace')->add('messages', 'js/messages.js', ['application']);
+        $this->asset()->container('footer')
+            ->add('messages', 'assets/js/messages.js', ['main']);
+        $conversations = $this->conversationRepository->listAll();
+        if($this->request->ajax()) {
+            $response  = [];
+            if($user) {
+                $messages = $this->messageRepository->getNewList($user->id, 5);
+                if(!$messages->isEmpty()) {
+                    if ($messages->count() > 5) {
+                        $response['page'] = $messages->currentPage() + 1;
+                        $response['Messages'] = view('messages.thread', ['messages' => $messages, 'contact' => $user])->render();
+                    } else {
+                        $response['Messages'] = array();
+                        foreach ($messages as $message) {
+                            array_push($response['Messages'], view('messages.message', ['message' => $message, 'contact' => $user])->render());
+                        }
+                    }
+                }
+            }
+            return $response;
+        }
         return $this->theme->of('messages.index', [
-            'conversations' => $this->conversationRepository->listAll(),
-            'userid' => $userid,
-            'messages' => ($userid) ? $this->messageRepository->getList($userid) : []
+            'conversations' => $conversations,
+            'contact'       => $user,
+            'messages'      => ($user) ? $this->messageRepository->getList($user->id) : []
         ])->render();
     }
 
@@ -102,6 +127,5 @@ class MessageController extends AppController
         $id = \Input::get('id');
         $this->messageRepository->delete($id);
     }
-
 
 }

@@ -155,167 +155,167 @@
     color: #981b48 !important
 }
 
-.bg.primary {
+.bg-primary {
     background-color: #e75b8d !important
 }
 
-.bg.secondary {
+.bg-secondary {
     background-color: #fb6e52 !important
 }
 
-.bg.white {
+.bg-white {
     background-color: #fff !important
 }
 
-.bg.snow {
+.bg-snow {
     background-color: #fbfbfb !important
 }
 
-.bg.whitesmoke {
+.bg-whitesmoke {
     background-color: #f5f5f5 !important
 }
 
-.bg.seashell {
+.bg-seashell {
     background-color: #f3f3f3 !important
 }
 
-.bg.ivory {
+.bg-ivory {
     background-color: #eee !important
 }
 
-.bg.platinum {
+.bg-platinum {
     background-color: #e5e5e5 !important
 }
 
-.bg.lightgray {
+.bg-lightgray {
     background-color: #d0d0d0 !important
 }
 
-.bg.gray {
+.bg-gray {
     background-color: #ccc !important
 }
 
-.bg.darkgray {
+.bg-darkgray {
     background-color: #999 !important
 }
 
-.bg.silver {
+.bg-silver {
     background-color: #777 !important
 }
 
-.bg.sonic-silver {
+.bg-sonic-silver {
     background-color: #737373 !important
 }
 
-.bg.storm-cloud {
+.bg-storm-cloud {
     background-color: #666 !important
 }
 
-.bg.lightcarbon {
+.bg-lightcarbon {
     background-color: #555 !important
 }
 
-.bg.carbon {
+.bg-carbon {
     background-color: #444 !important
 }
 
-.bg.slate-gray {
+.bg-slate-gray {
     background-color: #333 !important
 }
 
-.bg.darkcarbon {
+.bg-darkcarbon {
     background-color: #262626 !important
 }
 
-.bg.blue {
+.bg-blue {
     background-color: #5db2ff !important
 }
 
-.bg.info {
+.bg-info {
     background-color: #57b5e3 !important
 }
 
-.bg.sky {
+.bg-sky {
     background-color: #11a9cc !important
 }
 
-.bg.primary {
+.bg-primary {
     background-color: #4374e0 !important
 }
 
-.bg.azure {
+.bg-azure {
     background-color: #2dc3e8 !important
 }
 
-.bg.blueberry {
+.bg-blueberry {
     background-color: #6f85bf !important
 }
 
-.bg.palegreen {
+.bg-palegreen {
     background-color: #a0d468 !important
 }
 
-.bg.success {
+.bg-success {
     background-color: #53a93f !important
 }
 
-.bg.green {
+.bg-green {
     background-color: #8cc474 !important
 }
 
-.bg.lightyellow {
+.bg-lightyellow {
     background-color: #f6d52e !important
 }
 
-.bg.yellow {
+.bg-yellow {
     background-color: #ffce55 !important
 }
 
-.bg.warning {
+.bg-warning {
     background-color: #f4b400 !important
 }
 
-.bg.gold {
+.bg-gold {
     background-color: #f9b256 !important
 }
 
-.bg.orange {
+.bg-orange {
     background-color: #fb6e52 !important
 }
 
-.bg.lightred {
+.bg-lightred {
     background-color: #e46f61 !important
 }
 
-.bg.darkorange {
+.bg-darkorange {
     background-color: #ed4e2a !important
 }
 
-.bg.red {
+.bg-red {
     background-color: #df5138 !important
 }
 
-.bg.danger {
+.bg-danger {
     background-color: #d73d32 !important
 }
 
-.bg.pink {
+.bg-pink {
     background-color: #e75b8d !important
 }
 
-.bg.darkpink {
+.bg-darkpink {
     background-color: #cc324b !important
 }
 
-.bg.magenta {
+.bg-magenta {
     background-color: #bc5679 !important
 }
 
-.bg.purple {
+.bg-purple {
     background-color: #7e3794 !important
 }
 
-.bg.maroon {
+.bg-maroon {
     background-color: #981b48 !important
 }
 
@@ -1235,7 +1235,7 @@ hr.wide {
     line-height: 30px;
 }
 
-.bg.success .notebook {
+.bg-success .notebook {
     background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #8bbf61 5%) 0 0;
     background: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #8bbf61 5%) 0 0;
     background: linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #8bbf61 5%) 0 0;
@@ -1245,7 +1245,7 @@ hr.wide {
     color: #fff;
 }
 
-.bg.inverse .notebook {
+.bg-inverse .notebook {
     background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #424242 5%) 0 0;
     background: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #424242 5%) 0 0;
     background: linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #424242 5%) 0 0;
@@ -1255,7 +1255,7 @@ hr.wide {
     color: #fff;
 }
 
-.bg.primary .notebook {
+.bg-primary .notebook {
     background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #eb6a5a 5%) 0 0;
     background: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #eb6a5a 5%) 0 0;
     background: linear-gradient(bottom, rgba(255, 255, 255, 0.3) 0%, #eb6a5a 5%) 0 0;
@@ -1265,7 +1265,7 @@ hr.wide {
     color: #fff;
 }
 
-.bg.gray .notebook {
+.bg-gray .notebook {
     background: -webkit-linear-gradient(bottom, #f0f0f0 0%, #f9f9f9 5%) 0 0;
     background: -moz-linear-gradient(bottom, #f0f0f0 0%, #f9f9f9 5%) 0 0;
     background: linear-gradient(bottom, #f0f0f0 0%, #f9f9f9 5%) 0 0;

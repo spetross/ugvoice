@@ -12,7 +12,7 @@
 </header>
 --}}
 
-<div class="ui main inverted pointing attached menu">
+<div class="ui main inverted pointing attached menu" style="z-index: 10">
     <div class="ui container hidden-mobile">
         <div class="header item">
             <a href="{{ url('/') }}"><img src="/assets/img/logo.svg" style="height:30px"></a>
@@ -33,7 +33,7 @@
                     <img src="/assets/img/avatar/s/50.png" class="ui avatar image"> {{ ucwords(Auth::user()->name) }}
                 </a>
             @else
-                <a href="#login" class="item" id="user-login-button">
+                <a href="#login" data-uk-modal="{target:'#login-modal'}" class="item">
                     <i class="sign in icon"></i> Login
                 </a>
                 <a href="{{ action('LoginController@getSignup') }}" class="item">

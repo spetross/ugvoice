@@ -59,13 +59,12 @@ return array(
             /**
              * \Teepluss\Theme\Theme $theme
              */
-            $theme->asset()->add('core', 'assets/css/style.css', ['semantic']);
-            $theme->asset()->add('pace', 'assets/vendor/pace.min.js');
+            $theme->asset()->add('theme', 'assets/css/app.css');
+            $theme->asset()->add('core', 'assets/css/style.css', ['theme']);
+            //$theme->asset()->add('pace', 'assets/vendor/pace.min.js');
             $theme->asset()->add('jquery', 'assets/vendor/jquery.min.js');
-            $theme->asset()->add('semantic', 'assets/vendor/sui/semantic.min.css');
-            $theme->asset()->container('footer')->add('form-serialize', 'assets/vendor/sui/serialize-object.js', ['jquery']);
-            $theme->asset()->container('footer')->add('semantic', 'assets/vendor/sui/semantic.min.js', ['jquery']);
-            $theme->asset()->container('footer')->add('core', 'assets/js/application.js', ['semantic']);
+            $theme->asset()->container('footer')->add('core', 'assets/js/app.js', ['jquery']);
+            $theme->asset()->container('footer')->add('main', 'assets/js/main.js', ['core']);
             // Partial composer.
             // $theme->partialComposer('header', function($view)
             // {

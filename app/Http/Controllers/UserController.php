@@ -22,6 +22,7 @@ class UserController extends AppController
         } else {
             $this->theme->layout('user.public');
         }
+        $this->asset()->add('profile', 'assets/css/profile.css');
     }
 
     /**
@@ -36,7 +37,8 @@ class UserController extends AppController
 
     public function edit()
     {
-        $this->theme->asset()->container('footer')->add('wysiwyg', '/library/bootstrap-wysiwyg.js', ['jquery']);
+        $this->asset()->add('redactor', 'assets/vendor/redactor/redactor.css');
+        $this->asset()->add('redactor', 'assets/vendor/redactor/redactor.min.js', ['jquery']);
         return $this->theme->of('user.edit')->render();
     }
 

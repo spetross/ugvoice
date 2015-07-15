@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laracasts\Presenter\PresentableTrait;
 
 /**
  * app\User
@@ -66,6 +67,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 {
     use Traits\UserTrait,
         //Traits\Revisionable,
+        PresentableTrait,
         Authenticatable,
         CanResetPassword,
         SoftDeletes;
@@ -82,6 +84,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 
     protected static $userGroupsPivot = "users_groups";
+
+    protected $presenter = "app\\Presenters\\UserPresenter";
 
     protected $dates = [
         'last_login',

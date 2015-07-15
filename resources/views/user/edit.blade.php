@@ -9,6 +9,11 @@ $uploadConfig = [
         'uniqueId' => 'User-Avatar'
 ]
 ?>
+<style>
+    .redactor-toolbar {
+        z-index: 9;
+    }
+</style>
 
 <div class="form-errors margin-bottom-10">
     @include('layout.flash')
@@ -90,6 +95,11 @@ $uploadConfig = [
             </div>
         </div>
 
+        <div class="field">
+            <label for="form-field-user-bio">About me</label>
+            <textarea id="form-field-user-bio" name="bio">{!! old('bio', $user->bio) !!}</textarea>
+        </div>
+
         <div class="ui simple divider"></div>
 
         <div class="field">
@@ -135,23 +145,29 @@ $uploadConfig = [
     <div class="ui bottom attached tab segment" data-tab="settings" id="tab-settings">
         <div class="field">
             <div class="ui checkbox">
-                <input type="checkbox" id="form-field-user-privacy" name="settings[private_profile]"/>
-                <label for="form-field-user-privacy"> Hide your identity</label>
+                <input type="checkbox" id="form-field-user-privacy" name="settings[private_profile]" title="Hide your identity"/>
+                <label> Hide your identity</label>
             </div>
         </div>
 
         <div class="field">
             <div class="ui checkbox">
-                <input type="checkbox" id="form-field-setup-email-updates" name="settings[email_updates]"/>
-                <label for="form-field-setup-email-updates"> Email me new updates</label>
+                <input type="checkbox" id="form-field-setup-email-updates" name="settings[email_updates]" title=""/>
+                <label> Email me new updates</label>
             </div>
         </div>
 
         <div class="two fields">
             <div class="seven wide field">
-                <div class="ui checkbox">
-                    <input type="checkbox" id="form-field-setup-conversations" name="settings[conversation]"/>
-                    <label for="form-field-setup-conversations"> Keep a history of my conversations</label>
+                <div class="ui read-only checkbox">
+                    <input
+                            type="checkbox"
+                            checked="checked"
+                            title="" />
+                    <label>Keep a history of my conversations</label>
+                </div>
+                <div class="ui pointing info label">
+                    <i>Conversations are kept for a limited time</i>
                 </div>
             </div>
             <div class="five wide field">
@@ -160,10 +176,10 @@ $uploadConfig = [
                 <div class="ui right labeled left icon input">
                     <i class="tags icon"></i>
                     <input name="settings[conversation_limit]" id="form-field-setup-conversations-limit"
-                           value="{{ old('settings[conversation_limit]', 30) }}" type="text" maxlength="3"/>
-                        <span class="ui tag label">
-                            days
-                        </span>
+                           value="{{ old('settings[limit]', 30) }}" type="text" maxlength="3"/>
+                    <span class="ui tag label">
+                        days
+                    </span>
                 </div>
             </div>
         </div>
@@ -184,4 +200,12 @@ $uploadConfig = [
     </div>
 </div>
 {!! app('form')->close() !!}
+
+
+<script>
+    jQuery(function ($) {
+        $('#form-field-user-bio').redactor();
+    })
+</script>
+
 
