@@ -1,6 +1,6 @@
-<?php namespace app\Providers;
+<?php namespace App\Providers;
 
-use app\Support\Filesystem;
+use App\Support\Filesystem;
 use Illuminate\Filesystem\FilesystemServiceProvider as FilesystemServiceProviderBase;
 
 class FilesystemServiceProvider extends FilesystemServiceProviderBase

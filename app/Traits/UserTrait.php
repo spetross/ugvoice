@@ -1,10 +1,10 @@
-<?php namespace app\Traits;
+<?php namespace App\Traits;
 
 
 /**
  * Trait AccessControl
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Models\Traits
+ * @package App\Models\Traits
  */
 trait UserTrait
 {
@@ -215,7 +215,7 @@ trait UserTrait
     /**
      * Adds the user to the given group.
      *
-     * @param \app\Group $group
+     * @param \App\Group $group
      * @return bool
      */
     public function addGroup($group)

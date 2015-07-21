@@ -1,0 +1,99 @@
+//
+// Stripe loading indicator
+// --------------------------------------------------
+
+@stripe-loader-height: 4px;
+@color-stripe-loader : #0090c0;
+
+.stripe-loading-indicator {
+  height: @stripe-loader-height;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2000
+}
+
+.stripe-loading-indicator .stripe, .stripe-loading-indicator .stripe-loaded {
+  height: @stripe-loader-height;
+  display: block;
+  background: @color-stripe-loader;
+  position: absolute;
+  -webkit-box-shadow: inset 0 1px 1px -1px #FFF, inset 0 -1px 1px -1px #FFF;
+  box-shadow: inset 0 1px 1px -1px #FFF, inset 0 -1px 1px -1px #FFF
+}
+
+.stripe-loading-indicator .stripe {
+  width: 100%;
+  -webkit-animation: infinite-loader 60s linear;
+  animation: infinite-loader 60s linear
+}
+
+.stripe-loading-indicator .stripe-loaded {
+  width: 0;
+  display: none
+}
+
+.stripe-loading-indicator.loaded {
+  display: none;
+  -webkit-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s
+}
+
+.stripe-loading-indicator.loaded .stripe-loaded {
+  display: block;
+  -webkit-transition: width 0.3s linear;
+  transition: width 0.3s linear;
+  width: 100% !important
+}
+
+.stripe-loading-indicator.hide {
+  display: none
+}
+
+//
+// Infinite loading animation
+// --------------------------------------------------
+
+@startCount: 1;
+@startVal: 28%;
+@start: 0;
+.infinite-class (@index, @val, @count) when (@index = 0) {
+  @tmpSelector: ~"@{index}%";
+  @{tmpSelector} {
+    width: 0;
+  }
+  .infinite-class(@index + 10, @val + (@val / (@count * 2)), @count + 1);
+}
+
+.infinite-class (@index, @val, @count) when (@index < 101) and (@index > 9) {
+  @tmpSelector: ~"@{index}%";
+  @{tmpSelector} {
+    width: @val;
+  }
+  .infinite-class(@index + 10, @val + (@val / @count), @count * 2);
+}
+
+@-moz-keyframes infinite-loader {
+  .infinite-class(@start, @startVal, @startCount);
+}
+
+@-webkit-keyframes infinite-loader {
+  .infinite-class(@start, @startVal, @startCount);
+}
+
+@-o-keyframes infinite-loader {
+  .infinite-class(@start, @startVal, @startCount);
+}
+
+@-ms-keyframes infinite-loader {
+  .infinite-class(@start, @startVal, @startCount);
+}
+
+@keyframes infinite-loader {
+  .infinite-class(@start, @startVal, @startCount);
+}

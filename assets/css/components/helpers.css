@@ -1274,3 +1274,143 @@ hr.wide {
     -ms-background-size: 100% 30px;
     background-size: 100% 30px;
 }
+
+.ui.menu .item .badge {
+  display: block;
+  position: absolute;
+  top: -1px;
+  right: 2px;
+  line-height: 16px;
+  height: 16px;
+  padding: 0 5px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: white;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+  border: 1px solid;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+.ui.menu .item .badge {
+  background: #67c1ef;
+  border-color: #30aae9;
+  background-image: -webkit-linear-gradient(top, #acddf6, #67c1ef);
+  background-image: -moz-linear-gradient(top, #acddf6, #67c1ef);
+  background-image: -o-linear-gradient(top, #acddf6, #67c1ef);
+  background-image: linear-gradient(to bottom, #acddf6, #67c1ef);
+}
+.ui.menu .item .badge.green {
+  background: #77cc51;
+  border-color: #59ad33;
+  background-image: -webkit-linear-gradient(top, #a5dd8c, #77cc51);
+  background-image: -moz-linear-gradient(top, #a5dd8c, #77cc51);
+  background-image: -o-linear-gradient(top, #a5dd8c, #77cc51);
+  background-image: linear-gradient(to bottom, #a5dd8c, #77cc51);
+}
+.ui.menu .item .badge.yellow {
+  background: #faba3e;
+  border-color: #f4a306;
+  background-image: -webkit-linear-gradient(top, #fcd589, #faba3e);
+  background-image: -moz-linear-gradient(top, #fcd589, #faba3e);
+  background-image: -o-linear-gradient(top, #fcd589, #faba3e);
+  background-image: linear-gradient(to bottom, #fcd589, #faba3e);
+}
+.ui.menu .item .badge.red {
+  background: #fa623f;
+  border-color: #fa5a35;
+  background-image: -webkit-linear-gradient(top, #fc9f8a, #fa623f);
+  background-image: -moz-linear-gradient(top, #fc9f8a, #fa623f);
+  background-image: -o-linear-gradient(top, #fc9f8a, #fa623f);
+  background-image: linear-gradient(to bottom, #fc9f8a, #fa623f);
+}
+
+/* Positioning */
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.table-block {
+  display: table;
+}
+
+.cell {
+  display: table-cell;
+}
+
+.hidden {
+  display: none;
+}
+
+.hcenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vcenter {
+  display: table;
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.vcenter .vcenter-this {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0 0 50px 0;
+  font-size: 34px;
+}
+.section-title h2 {
+    position: relative;
+    color: #595e80;
+    display: block;
+    padding: 0 0 0.6em 0;
+    margin: 0 0 0.4em 0;
+    text-transform: capitalize;
+}
+.section-title h2:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 3px;
+  width: 100px;
+  background: #08AFB5;
+  bottom: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.section-title p {
+  margin: 0;
+  font: 300 0.5em/1 "Roboto";
+}
+.section-title.invert-colors {
+  color: #fff;
+}
+.section-title.invert-colors h1, .section-title.invert-colors h2, .section-title.invert-colors h3 {
+  color: #fff;
+}
+.section-title.invert-colors p {
+  opacity: 0.6;
+}
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 25px;
+  }
+}

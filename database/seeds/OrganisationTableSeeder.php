@@ -1,6 +1,6 @@
 <?php
 
-use app\Organisation;
+use App\Organisation;
 use Illuminate\Database\Seeder;
 
 /**

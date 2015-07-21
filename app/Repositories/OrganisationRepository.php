@@ -1,7 +1,7 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
-use app\Exceptions\OrganisationNotFoundException;
-use app\Organisation;
+use App\Exceptions\OrganisationNotFoundException;
+use App\Organisation;
 
 class OrganisationRepository
 {

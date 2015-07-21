@@ -26,7 +26,7 @@
       "app/Exceptions/Exceptions.php"
     ],
     "psr-4": {
-      "app\\": "app/"
+      "App\\": "app/"
     }
   },
   "autoload-dev": {

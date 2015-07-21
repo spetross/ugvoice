@@ -52,7 +52,7 @@
                     clipto = ('rect(0px, ' + (width * (i + 1)) + 'px, ' + ghostHeight + 'px, ' + (sliceWidth * i) + 'px)'),
                     clipfrom;
 
-                //slice-down - default
+                //slice-down - sem-ui
                 clipfrom = ('rect(0px, ' + (width * (i + 1)) + 'px, 0px, ' + (sliceWidth * i) + 'px)');
 
                 if (fromfx == 'slice-up' || (fromfx == 'slice-up-down' && ((i % 2) + 2) % 2 == 0 )) {

@@ -6,7 +6,7 @@ var elixir = require('laravel-elixir');
  |--------------------------------------------------------------------------
  |
  | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Less
+ | for your Laravel application. By sem-ui, we are compiling the Less
  | file for our application, as well as publishing vendor resources.
  |
  */
@@ -24,6 +24,9 @@ elixir(function (mix) {
         "../vendor/uikit/js/core/alert.js",
         "../vendor/uikit/js/core/grid.js",
         "../vendor/uikit/js/core/modal.js",
+        "../vendor/uikit/js/core/cover.js",
+        "../vendor/uikit/js/core/tab.js",
+        "../vendor/uikit/js/core/switcher.js",
         "../vendor/uikit/js/core/offcanvas.js",
        	"../vendor/uikit/js/core/toggle.js",
        	"../vendor/uikit/js/core/touch.js",

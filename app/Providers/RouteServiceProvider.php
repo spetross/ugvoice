@@ -1,4 +1,4 @@
-<?php namespace app\Providers;
+<?php namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
@@ -13,7 +13,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'app\Http\Controllers';
+    protected $namespace = 'App\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -25,7 +25,15 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-        //
+        $router->bind('user', function($value)
+        {
+            return app('App\\Repositories\\UserRepository')->findByIdUsername($value);
+        });
+
+        $router->bind('client', function ($value) {
+            return app('App\\Repositories\\OrganisationRepository')->findBySlug($value);
+        });
+
     }
 
     /**

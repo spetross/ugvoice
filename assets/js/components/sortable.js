@@ -147,7 +147,7 @@
             pullPlaceholder: true,
             // Specifies serialization of the container group.
             // The pair $parent/$children is either container/items or item/subcontainers.
-            // Note that this default method only works, if every item only has one subcontainer
+            // Note that this sem-ui method only works, if every item only has one subcontainer
             serialize: function ($parent, $children, parentIsContainer) {
                 var result = $.extend({}, $parent.data())
 

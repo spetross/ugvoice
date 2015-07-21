@@ -5,7 +5,7 @@
 <div class="ui comments" data-post="{{ $post->id }}">
     @if(!$comments->isEmpty())
         @foreach($comments as $comment)
-            @include('client.posts.comment', compact('comment'))
+            @include('client.timeline.comment', compact('comment'))
         @endforeach
     @endif
 </div>

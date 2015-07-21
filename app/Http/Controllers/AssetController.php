@@ -1,7 +1,7 @@
-<?php namespace app\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use app\Exceptions\ValidationException;
-use app\Repositories\FileRepository;
+use App\Exceptions\ValidationException;
+use App\Repositories\FileRepository;
 use Illuminate\Http\Request;
 
 class AssetController extends AppController
@@ -28,6 +28,7 @@ class AssetController extends AppController
             $result = $file;
         } catch (\Exception $ex) {
             $result = json_encode(['error' => $ex->getMessage()]);
+            throw $ex;
         }
         header('Content-Type: application/json');
         die($result);

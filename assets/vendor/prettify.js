@@ -93,7 +93,7 @@ var prettyPrint;
     // We use things that coerce to strings to make them compact when minified
     // and to defeat aggressive optimizers that fold large string constants.
     var FLOW_CONTROL_KEYWORDS = ["break,continue,do,else,for,if,return,while"];
-    var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS, "auto,case,char,const,default," +
+    var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS, "auto,case,char,const,sem-ui," +
     "double,enum,extern,float,goto,inline,int,long,register,short,signed," +
     "sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"];
     var COMMON_KEYWORDS = [C_KEYWORDS, "catch,class,delete,false,import," +
@@ -942,7 +942,7 @@ var prettyPrint;
 
             // http://gcc.gnu.org/onlinedocs/gcc-2.95.3/cpp_1.html#SEC3
             // suggests that this definition is compatible with a
-            // default mode that tries to use a single token definition
+            // sem-ui mode that tries to use a single token definition
             // to recognize both bash/python style comments and C
             // preprocessor directives.
 
@@ -1287,13 +1287,13 @@ var prettyPrint;
             // Treat it as markup if the first non whitespace character is a < and
             // the last non-whitespace character is a >.
             extension = /^\s*</.test(source)
-                ? 'default-markup'
-                : 'default-code';
+                ? 'sem-ui-markup'
+                : 'sem-ui-code';
         }
         return langHandlerRegistry[extension];
     }
 
-    registerLangHandler(decorateSource, ['default-code']);
+    registerLangHandler(decorateSource, ['sem-ui-code']);
     registerLangHandler(
         createSimpleLexer(
             [],
@@ -1312,7 +1312,7 @@ var prettyPrint;
                 ['lang-css', /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],
                 ['lang-in.tag', /^(<\/?[a-z][^<>]*>)/i]
             ]),
-        ['default-markup', 'htm', 'html', 'mxml', 'xhtml', 'xml', 'xsl']);
+        ['sem-ui-markup', 'htm', 'html', 'mxml', 'xhtml', 'xml', 'xsl']);
     registerLangHandler(
         createSimpleLexer(
             [

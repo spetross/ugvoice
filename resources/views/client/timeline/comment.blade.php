@@ -14,7 +14,8 @@
         </div>
         <div class="actions">
             @if(Auth::id() === $comment->user->id)
-                <a class="cm delete red color" data-client="{{ $client->slug }}" data-id="{{ $comment->id }}">Delete</a>
+                <a class="cm delete red color" data-client="{{ $client->slug }}" data-post="{{ $comment->post_id }}"
+                   data-id="{{ $comment->id }}">Delete</a>
             @else
                 <a class="cm reply" data-client="{{ $client->slug }}" data-id="{{ $comment->id }}">Reply</a>
             @endif

@@ -3,9 +3,10 @@
 @endforeach
 
 @if (count($errors) > 0)
-    <div class="ui floating error message text-left">
-        <div class="header"><strong>Whoops!</strong></div>
-        <ul>
+    <div class="ui floating error message">
+    	<i class="close icon"></i>
+        <div class="header"><strong>Whoops! Something went wrong</strong></div>
+        <ul class="list">
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach

@@ -1,3 +1,7 @@
+@extends('client.layout')
+
+@section('content')
+
 <div class="ui two cards">
     <div class="card">
         <div class="content">
@@ -21,3 +25,4 @@
         </div>
     </div>
 </div>
+@stop

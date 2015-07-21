@@ -1,4 +1,4 @@
-<?php namespace app\Support;
+<?php namespace App\Support;
 
 use File as FileHelper;
 

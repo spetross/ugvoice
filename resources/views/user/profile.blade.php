@@ -1,3 +1,7 @@
+@extends('user.layout')
+
+@section('content')
+
 <div class="" style="border:none">
     <div class="tab-pane active">
         <div class="space-12"></div>
@@ -7,8 +11,8 @@
             <div class="profile-info-row">
                 <div class="profile-info-name"> Username</div>
                 <div class="profile-info-value">
-                            <span class="editable editable-click" id="username">
-                            {{ $user->username }}</span>
+                    <span class="editable editable-click" id="username">
+                    {{ $user->username }}</span>
                 </div>
             </div>
 
@@ -110,3 +114,4 @@
     </div>
 </div>
 
+@stop

@@ -1,7 +1,7 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
-use app\Exceptions\GroupNotFoundException;
-use app\Models\Group;
+use App\Exceptions\GroupNotFoundException;
+use App\Group;
 
 class GroupRepository
 {
@@ -17,7 +17,7 @@ class GroupRepository
      * Find the group by ID.
      *
      * @param int $id
-     * @return GroupInterface
+     * @return Group
      * @throws GroupNotFoundException
      */
     public function find($id, array $columns = ['*'])
@@ -38,13 +38,13 @@ class GroupRepository
      *
      * @throws GroupNotFoundException
      *
-     * @return GroupInterface $group
+     * @return Group $group
      */
     public function findByName($name)
     {
         $model = $this->model;
-
-        if (!$group = $model->query()->where('name', '=', $name)->first()) {
+        $group_name = strtolower($name);
+        if (!$group = $model->query()->where('name', '=', $group_name)->first()) {
             throw new GroupNotFoundException("A group could not be found with the name [$name].");
         }
 

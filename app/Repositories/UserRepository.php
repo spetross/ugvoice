@@ -1,8 +1,8 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
-use app\Exceptions\UserNotFoundException;
-use app\Exceptions\WrongPasswordException;
-use app\User;
+use App\Exceptions\UserNotFoundException;
+use App\Exceptions\WrongPasswordException;
+use App\User;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Mail\Mailer;
 use InvalidArgumentException;
@@ -36,7 +36,7 @@ class UserRepository
      * Find user by there username
      *
      * @param string $username
-     * @return \app\User
+     * @return \App\User
      */
     public function findByUsername($username)
     {
@@ -74,7 +74,7 @@ class UserRepository
      *
      * @throws UserNotFoundException
      *
-     * @return \app\User
+     * @return \App\User
      */
     public function findByLogin($login)
     {
@@ -91,7 +91,7 @@ class UserRepository
      * Finds a user by the given credentials.
      *
      * @param array $credentials
-     * @return \app\User
+     * @return \App\User
      * @throws WrongPasswordException
      */
     public function findByCredentials(array $credentials)
@@ -404,7 +404,7 @@ class UserRepository
     /**
      * Send Activation code
      *
-     * @param \app\Models\User $user
+     * @param \App\Models\User $user
      * @return boolean
      */
     public function sendActivation($user)
@@ -436,7 +436,7 @@ class UserRepository
      * Change password
      *
      * @param array $val
-     * @param \app\Models\User $user
+     * @param \App\Models\User $user
      * @return boolean
      */
     public function changePassword($val, $user = null)
@@ -467,7 +467,7 @@ class UserRepository
      * Save user bio
      *
      * @param string $bio
-     * @param \app\User $user
+     * @param \App\User $user
      * @return boolean
      */
     public function saveBio($bio, $user = null, $city = null)
@@ -483,7 +483,7 @@ class UserRepository
      * save user privacy info
      *
      * @param array $val
-     * @param \app\Models\User $user
+     * @param \App\Models\User $user
      * @return boolean
      */
     public function savePrivacy($val, $user = null)
@@ -527,7 +527,7 @@ class UserRepository
     /**
      * Returns an empty user object.
      *
-     * @return \app\User
+     * @return \App\User
      */
     public function getEmptyUser()
     {

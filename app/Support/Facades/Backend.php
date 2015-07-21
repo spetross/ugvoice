@@ -6,7 +6,7 @@
  * Time: 1:28 AM
  */
 
-namespace app\Support\Facades;
+namespace App\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -16,7 +16,7 @@ class Backend extends Facade
      * Get the registered name of the component.
      *
      * Resolves to:
-     * - app\Support\BackendHelper
+     * - App\Support\BackendHelper
      *
      * @return string
      */

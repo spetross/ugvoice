@@ -1,5 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,700,300,600,400);
 @import "../vendor/sui/semantic.min.css";
 @import "almost-flat/uikit";
+@import "controls/list";
+@import "controls/loadindicator";
+@import "controls/forms";
+@import "controls/fonts";
+
 
 /* theme: Almost Flat */
 
@@ -7,8 +13,8 @@
 // Typography
 //
 
-@base-body-font-family: "Asap";
-@base-heading-font-family: "Asap";
+@base-body-font-family: 'Open Sans', serif;
+@base-heading-font-family: 'Open Sans', serif;
 
 @global-link-color: #cc6788;
 @global-link-hover-color: #e7aeab;
@@ -45,5 +51,19 @@
 @icon-font-path: "../fonts";
 
 .uk-close::after {
+    font-family: Icons;
+}
+
+.uk-slidenav-previous:before {
+    font-family: Icons;
+}
+
+.uk-slidenav-next:before {
+    font-family: Icons;
+}
+.uk-navbar-toggle:after {
+    font-family: Icons;
+}
+.uk-tab-responsive > a::before {
     font-family: Icons;
 }

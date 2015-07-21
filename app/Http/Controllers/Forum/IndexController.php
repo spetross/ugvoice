@@ -1,14 +1,14 @@
-<?php namespace app\Http\Controllers\Forum;
+<?php namespace App\Http\Controllers\Forum;
 
-use app\Http\Controllers\AppController;
+use App\Http\Controllers\AppController;
 
 class IndexController extends AppController
 {
 
     public function __construct()
     {
-        $this->layout = 'forum.main';
         parent::__construct();
+        $this->setLayout(null, 'forum index');
     }
 
     /**
@@ -18,7 +18,7 @@ class IndexController extends AppController
      */
     public function index()
     {
-        $this->title = "Forum index";
+        $this->setTitle('Forum');
         return $this->render('forum.index');
     }
 

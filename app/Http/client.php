@@ -2,71 +2,65 @@
 
 
 Route::get('/', [
-    'as' => 'client.home', 'uses' => 'Clients\ClientController@home'
+    'as' => 'client-home',
+    'uses' => 'Client\PageController@home'
 ]);
 
 Route::any('about', [
-    'as' => 'client.about', 'uses' => 'Clients\ClientController@about'
+    'as' => 'about-client',
+    'uses' => 'Client\PageController@about'
 ]);
 
 Route::any('articles', [
-    'as' => 'client.articles', 'uses' => 'Clients\ClientController@articles'
+    'as' => 'client-articles',
+    'uses' => 'Client\PageController@articles'
 ]);
 
 Route::any('contacts', [
-    'as' => 'client.contacts', 'uses' => 'Clients\ClientController@contacts'
+    'as' => 'client-contacts',
+    'uses' => 'Client\PageController@contacts'
 ]);
 
-Route::post('/', 'Clients\PostsController@index');
-
-Route::post('posts', 'Clients\PostsController@posts');
-
-Route::post('post/add', [
-    'as' => 'client.post.store', 'uses' => 'Clients\PostsController@onPost'
+Route::post('/', [
+    'as' => 'get-client-posts',
+    'uses' => 'Client\PostController@index'
 ]);
 
-Route::get('post/{id}', [
-    'as' => 'client.post.show', 'uses' => 'Clients\PostsController@show'
+Route::post('posts', [
+    'as'    => 'post.add',
+    'uses'  => 'Client\PostController@onPost'
+]);
+
+Route::get('posts/{post}', [
+    'as'    => 'show-post',
+    'uses'  => 'Client\PostController@show'
+]);
+
+Route::put('posts/{post}', [
+    'as' => 'add-post-comment',
+    'uses' => 'Client\PostController@onComment'
+]);
+
+Route::get('posts/{post}/comments', [
+    'as' => 'get-post-comments',
+    'uses' => 'Client\PostController@getComments'
+]);
+
+Route::put('posts/{post}/edit', [
+    'as' => 'edit-post',
+    'uses' => 'Client\PostController@onEdit'
 ]);
 
 
-Route::post('post/{id}', [
-    'as' => 'client.post.comment', 'uses' => 'Clients\PostsController@onComment'
+Route::delete('post/{post}', [
+    'as'    => 'delete-post',
+    'uses'  => 'Client\PostController@deletePost'
 ]);
 
-Route::get('post/{id}/comments', function ($client, $postId) {
-    $post = $client->posts()->getQuery()->find($postId);
-    $comments = $post->comments()->getQuery()->paginate(6);
-    return view('client.posts.comments', compact('post', 'comments'))->render();
-});
-
-Route::post('post/{id}/comments', function ($client, $postId) {
-    $response = [];
-    /** @var \app\Post $post */
-    $post = $client->posts()->getQuery()->find($postId);
-    $comments = $post->comments()->getQuery()->paginate(6);
-    if ($comments->hasMorePages())
-        $response['nextPage'] = $comments->currentPage() + 1;
-    $response['success'] = true;
-    $response['Comments'] = [];
-    foreach ($comments as $comment) {
-        array_push($response['Comments'], view('client.posts.comment', compact('comment'))->render());
-    }
-    return $response;
-});
-
-
-Route::delete('post/{id}', function ($client, $id) {
-    $post = $client->posts()->getQuery()->find($id);
-    $post->delete();
-    return ['success' => true];
-});
-
-Route::delete('comment/{id}', function ($client, $id) {
-    $comment = \app\Comment::find($id);
-    $comment->delete();
-    return ['success' => true];
-});
+Route::delete('post/{post}/comment/{comment}', [
+    'as' => 'delete-comment',
+    'uses' => 'Client\PostController@deleteComment'
+]);
 
 Route::get('/articles', [
     'as' => 'client.articles',
@@ -144,11 +138,5 @@ Route::group([
         'as' => 'client.counselor.delete',
         'uses' => 'Clients\PersonController@destroy'
     ]);
-
-    Route::get('/timeline', [
-        'as' => 'client.timeline',
-        'uses' => 'Clients\PostsController@index'
-    ]);
-
 
 });

@@ -1,4 +1,4 @@
-<?php namespace app\Traits;
+<?php namespace App\Traits;
 
 
 trait Messageable
@@ -11,7 +11,7 @@ trait Messageable
      */
     public function messages()
     {
-        return $this->hasMany('app\Models\Message');
+        return $this->hasMany('App\Models\Message');
     }
 
     /**
@@ -21,7 +21,7 @@ trait Messageable
      */
     public function threads()
     {
-        return $this->belongsToMany('app\Models\Thread', 'participants');
+        return $this->belongsToMany('App\Models\Thread', 'participants');
     }
 
     /**

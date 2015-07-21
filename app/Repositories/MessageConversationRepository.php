@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
-use app\MessageConversation;
+use App\MessageConversation;
 
 /**
  * Class MessageConversationRepository
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Repositories
+ * @package App\Repositories
  */
 class MessageConversationRepository
 {
@@ -53,7 +53,7 @@ class MessageConversationRepository
     }
 
     /**
-     * @return \app\MessageConversation
+     * @return \App\MessageConversation
      */
     public function lastConversation()
     {

@@ -1,6 +1,6 @@
-<?php namespace app\Http\Controllers\Forum;
+<?php namespace App\Http\Controllers\Forum;
 
-use app\Http\Controllers\AppController;
+use App\Http\Controllers\AppController;
 
 class PostController extends AppController
 {

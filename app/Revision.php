@@ -1,4 +1,4 @@
-<?php namespace app;
+<?php namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 /**
- * app\Revision
+ * App\Revision
  *
  * @property integer $id
  * @property string $revisionable_type
@@ -20,16 +20,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Carbon\Carbon $deleted_at
  * @property-read \ $revisionable
  * @property-read \config('auth.model $user
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereRevisionableType($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereRevisionableId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereKey($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereOldValue($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereNewValue($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Revision whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereRevisionableType($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereRevisionableId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereKey($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereOldValue($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereNewValue($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Revision whereDeletedAt($value)
  */
 class Revision extends Model
 {

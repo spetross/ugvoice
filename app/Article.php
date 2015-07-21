@@ -1,17 +1,17 @@
-<?php namespace app;
+<?php namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * app\Article
+ * App\Article
  *
  * @property integer $id
  * @property integer $user_id
  * @property integer $organisation_id
  * @property string $title
  * @property string $slug
- * @property \Illuminate\Database\Eloquent\Collection|\app\Tag[] $tags
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Tag[] $tags
  * @property string $excerpt
  * @property string $content
  * @property string $content_html
@@ -21,23 +21,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $deleted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \app\Organisation $organisation
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereOrganisationId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereTitle($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereSlug($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereTags($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereExcerpt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereContent($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereContentHtml($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereStatus($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article wherePublished($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article wherePublishedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereDeletedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Article published()
+ * @property-read \App\Organisation $organisation
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereOrganisationId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereSlug($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereTags($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereExcerpt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereContentHtml($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article wherePublished($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article wherePublishedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article published()
  */
 class Article extends Model
 {
@@ -62,12 +62,12 @@ class Article extends Model
 
     public function organisation()
     {
-        return $this->belongsTo('app\Organisation', 'organisation_id');
+        return $this->belongsTo('App\Organisation', 'organisation_id');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('app\Tag', 'article_tag');
+        return $this->belongsToMany('App\Tag', 'article_tag');
 
     }
 
@@ -78,7 +78,7 @@ class Article extends Model
 
     public function photos()
     {
-        return $this->morphMany('app\File', 'attachable');
+        return $this->morphMany('App\File', 'attachable');
     }
 
     public function getUrl()

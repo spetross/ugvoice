@@ -1,9 +1,9 @@
-<?php namespace app;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * app\Organisation
+ * App\Organisation
  *
  * @property integer $id
  * @property string $name
@@ -24,27 +24,27 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $created_by
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\app\Post[] $posts
- * @property-read \Illuminate\Database\Eloquent\Collection|\app\Article[] $articles
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereSlug($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereCcEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereWebsite($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereMission($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereObjectives($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation wherePhone($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereCcPhone($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereFacebook($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereTwitter($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereGoogle($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereCountry($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereAddress($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereCreatedBy($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Organisation whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Post[] $posts
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Article[] $articles
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereSlug($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereCcEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereWebsite($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereMission($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereObjectives($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation wherePhone($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereCcPhone($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereFacebook($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereTwitter($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereGoogle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereCountry($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereAddress($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereCreatedBy($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Organisation whereUpdatedAt($value)
  */
 class Organisation extends Model
 {
@@ -58,7 +58,7 @@ class Organisation extends Model
      */
     public function logo()
     {
-        return $this->morphOne('app\File', 'attachable');
+        return $this->morphOne('App\File', 'attachable');
     }
 
     /**
@@ -66,7 +66,7 @@ class Organisation extends Model
      */
     public function posts()
     {
-        return $this->hasMany('app\Post');
+        return $this->hasMany('App\Post');
     }
 
     /**
@@ -74,6 +74,6 @@ class Organisation extends Model
      */
     public function articles()
     {
-        return $this->hasMany('app\Article');
+        return $this->hasMany('App\Article');
     }
 }

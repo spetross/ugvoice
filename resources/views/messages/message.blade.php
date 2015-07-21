@@ -1,4 +1,4 @@
-@if($message->sender == $user->id)
+@if($message->sender == Auth::id())
     <li class="message">
         <div class="message-info">
             <div class="bullet"></div>

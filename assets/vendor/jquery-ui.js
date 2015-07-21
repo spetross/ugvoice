@@ -5949,7 +5949,7 @@
 
             // clean up headers
             this.headers
-                .removeClass("ui-accordion-header ui-accordion-header-active ui-state-default " +
+                .removeClass("ui-accordion-header ui-accordion-header-active ui-state-sem-ui " +
                 "ui-corner-all ui-state-active ui-state-disabled ui-corner-top")
                 .removeAttr("role")
                 .removeAttr("aria-expanded")
@@ -6096,7 +6096,7 @@
                 prevPanels = this.panels;
 
             this.headers = this.element.find(this.options.header)
-                .addClass("ui-accordion-header ui-state-default ui-corner-all");
+                .addClass("ui-accordion-header ui-state-sem-ui ui-corner-all");
 
             this.panels = this.headers.next()
                 .addClass("ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom")
@@ -7166,7 +7166,7 @@
                                     this._value(this.term);
                                 }
                                 this.close(event);
-                                // Different browsers have different default behavior for escape
+                                // Different browsers have different sem-ui behavior for escape
                                 // Single press can mean undo or clear
                                 // Double press in IE means clear the whole form
                                 event.preventDefault();
@@ -7670,7 +7670,7 @@
 
 
     var lastActive,
-        baseClasses = "ui-button ui-widget ui-state-default ui-corner-all",
+        baseClasses = "ui-button ui-widget ui-state-sem-ui ui-corner-all",
         typeClasses = "ui-button-icons-only ui-button-icon-only ui-button-text-icons ui-button-text-icon-primary ui-button-text-icon-secondary ui-button-text-only",
         formResetHandler = function () {
             var form = $(this);
@@ -8200,7 +8200,7 @@
             return this.dpDiv;
         },
 
-        /* Override the default settings for all instances of the date picker.
+        /* Override the sem-ui settings for all instances of the date picker.
          * @param  settings  object - the new settings to use as defaults (anonymous object)
          * @return the manager object
          */
@@ -8365,7 +8365,7 @@
          * @param  settings  object - update the dialog date picker instance's settings (anonymous object)
          * @param  pos int[2] - coordinates for the dialog's position within the screen or
          *					event - with x/y coordinates or
-         *					leave empty for default (screen centre)
+         *					leave empty for sem-ui (screen centre)
          * @return the manager object
          */
         _dialogDatepicker: function (input, date, onSelect, settings, pos) {
@@ -8618,7 +8618,7 @@
 
         /* Get the date(s) for the first entry in a jQuery selection.
          * @param  target element - the target input field or division or span
-         * @param  noDefault boolean - true if no default date is to be used
+         * @param  noDefault boolean - true if no sem-ui date is to be used
          * @return Date - the current date
          */
         _getDateDatepicker: function (target, noDefault) {
@@ -9547,7 +9547,7 @@
             this._adjustInstDate(inst);
         },
 
-        /* Retrieve the default date shown on opening. */
+        /* Retrieve the sem-ui date shown on opening. */
         _getDefaultDate: function (inst) {
             return this._restrictMinMax(inst,
                 this._determineDate(inst, this._get(inst, "defaultDate"), new Date()));
@@ -9764,11 +9764,11 @@
             currentText = (!navigationAsDateFormat ? currentText :
                 this.formatDate(currentText, gotoDate, this._getFormatConfig(inst)));
 
-            controls = (!inst.inline ? "<button type='button' class='ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all' data-handler='hide' data-event='click'>" +
+            controls = (!inst.inline ? "<button type='button' class='ui-datepicker-close ui-state-sem-ui ui-priority-primary ui-corner-all' data-handler='hide' data-event='click'>" +
             this._get(inst, "closeText") + "</button>" : "");
 
             buttonPanel = (showButtonPanel) ? "<div class='ui-datepicker-buttonpane ui-widget-content'>" + (isRTL ? controls : "") +
-            (this._isInRange(inst, gotoDate) ? "<button type='button' class='ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all' data-handler='today' data-event='click'" +
+            (this._isInRange(inst, gotoDate) ? "<button type='button' class='ui-datepicker-current ui-state-sem-ui ui-priority-secondary ui-corner-all' data-handler='today' data-event='click'" +
             ">" + currentText + "</button>" : "") + (isRTL ? "" : controls) + "</div>" : "";
 
             firstDay = parseInt(this._get(inst, "firstDay"), 10);
@@ -9859,7 +9859,7 @@
                                 ((!otherMonth || showOtherMonths) && daySettings[2] ? " title='" + daySettings[2].replace(/'/g, "&#39;") + "'" : "") + // cell title
                                 (unselectable ? "" : " data-handler='selectDay' data-event='click' data-month='" + printDate.getMonth() + "' data-year='" + printDate.getFullYear() + "'") + ">" + // actions
                                 (otherMonth && !showOtherMonths ? "&#xa0;" : // display for other months
-                                    (unselectable ? "<span class='ui-state-default'>" + printDate.getDate() + "</span>" : "<a class='ui-state-default" +
+                                    (unselectable ? "<span class='ui-state-sem-ui'>" + printDate.getDate() + "</span>" : "<a class='ui-state-sem-ui" +
                                     (printDate.getTime() === today.getTime() ? " ui-state-highlight" : "") +
                                     (printDate.getTime() === currentDate.getTime() ? " ui-state-active" : "") + // highlight selected day
                                     (otherMonth ? " ui-priority-secondary" : "") + // distinguish dates from other months
@@ -11238,7 +11238,7 @@
 
             // Create button
             this.button = $("<span>", {
-                "class": "ui-selectmenu-button ui-widget ui-state-default ui-corner-all",
+                "class": "ui-selectmenu-button ui-widget ui-state-sem-ui ui-corner-all",
                 tabindex: tabindex || this.options.disabled ? -1 : 0,
                 id: this.ids.button,
                 role: "combobox",
@@ -11838,8 +11838,8 @@
         _createHandles: function () {
             var i, handleCount,
                 options = this.options,
-                existingHandles = this.element.find(".ui-slider-handle").addClass("ui-state-default ui-corner-all"),
-                handle = "<span class='ui-slider-handle ui-state-default ui-corner-all' tabindex='0'></span>",
+                existingHandles = this.element.find(".ui-slider-handle").addClass("ui-state-sem-ui ui-corner-all"),
+                handle = "<span class='ui-slider-handle ui-state-sem-ui ui-corner-all' tabindex='0'></span>",
                 handles = [];
 
             handleCount = ( options.values && options.values.length ) || 1;
@@ -13342,7 +13342,7 @@
                 })
 
                 // support: IE <9
-                // Preventing the default action in mousedown doesn't prevent IE
+                // Preventing the sem-ui action in mousedown doesn't prevent IE
                 // from focusing the element, so if the anchor gets focused, blur.
                 // We don't have to worry about focusing the previously focused
                 // element since clicking on a non-focusable element should focus
@@ -13354,7 +13354,7 @@
                 });
 
             this.tabs = this.tablist.find("> li:has(a[href])")
-                .addClass("ui-state-default ui-corner-top")
+                .addClass("ui-state-sem-ui ui-corner-top")
                 .attr({
                     role: "tab",
                     tabIndex: -1
@@ -13467,7 +13467,7 @@
             }
 
             this._off(this.anchors.add(this.tabs).add(this.panels));
-            // Always prevent the default action, even when disabled
+            // Always prevent the sem-ui action, even when disabled
             this._on(true, this.anchors, {
                 click: function (event) {
                     event.preventDefault();
@@ -13683,7 +13683,7 @@
                     $(this).remove();
                 } else {
                     $(this)
-                        .removeClass("ui-state-default ui-state-active ui-state-disabled " +
+                        .removeClass("ui-state-sem-ui ui-state-active ui-state-disabled " +
                         "ui-corner-top ui-corner-bottom ui-widget-content ui-tabs-active ui-tabs-panel")
                         .removeAttr("tabIndex")
                         .removeAttr("aria-live")
@@ -14576,7 +14576,7 @@
 
                             // everything defined but alpha?
                             if (inst[cache] && jQuery.inArray(null, inst[cache].slice(0, 3)) < 0) {
-                                // use the default of 1
+                                // use the sem-ui of 1
                                 inst[cache][3] = 1;
                                 if (space.from) {
                                     inst._rgba = space.from(inst[cache]);
@@ -14710,7 +14710,7 @@
 
                 return "#" + jQuery.map(rgba, function (v) {
 
-                        // default to 0 when nulls exist
+                        // sem-ui to 0 when nulls exist
                         v = ( v || 0 ).toString(16);
                         return v.length === 1 ? "0" + v : v;
                     }).join("");
@@ -15710,7 +15710,7 @@
         el.show();
         $.effects.createWrapper(el); // Create Wrapper
 
-        // default distance for the BIGGEST bounce is the outer Distance / 3
+        // sem-ui distance for the BIGGEST bounce is the outer Distance / 3
         if (!distance) {
             distance = el[ref === "top" ? "outerHeight" : "outerWidth"]() / 3;
         }
@@ -16396,7 +16396,7 @@
         options.queue = false;
         options.complete = done;
 
-        // Set default origin and restore for show/hide
+        // Set sem-ui origin and restore for show/hide
         if (mode !== "effect") {
             options.origin = origin || ["middle", "center"];
             options.restore = true;

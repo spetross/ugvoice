@@ -1,16 +1,16 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
-use app\Repositories\MessageConversationRepository;
-use app\Repositories\MessageRepository;
-use app\Repositories\UserRepository;
+use App\Repositories\MessageConversationRepository;
+use App\Repositories\MessageRepository;
+use App\Repositories\UserRepository;
 
 
 /**
  * Class MessageController
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Http\Controllers
+ * @package App\Http\Controllers
  */
 class MessageController extends AppController
 {
@@ -24,7 +24,9 @@ class MessageController extends AppController
         $this->conversationRepository = $messageConversationRepository;
         $this->userRepository = $userRepository;
         parent::__construct();
-        $this->theme->share('user', \Auth::user());
+        $this->asset()->add('profile', 'assets/css/profile.css');
+        $this->asset()->container('footer')
+            ->add('messages', 'assets/js/messages.js', ['main']);
         $this->user = \Auth::user();
     }
 
@@ -51,6 +53,23 @@ class MessageController extends AppController
         }
     }
 
+    /**
+     * @param \App\User $user
+     * @return \Illuminate\Http\RedirectResponse|string
+     */
+    public function read($user)
+    {
+        if($user == $this->user) {
+            \Flash::error('Invalid user');
+            return redirect()->route('messages');
+        }
+        $conversations = $this->conversationRepository->listAll();
+        $messages = $this->messageRepository->getList($user->id);
+        $response = $this->render('messages.index', compact('messages', 'user', 'conversations'));
+        if($this->request->ajax()) $response = $this->render('messages.thread', compact('messages', 'user'));
+        return $response;
+    }
+
 
     public function more()
     {
@@ -59,7 +78,6 @@ class MessageController extends AppController
         $offset = \Input::get('offset');
         $offset = (empty($offset)) ? $limit : $offset;
         $newOffset = $offset + $limit;
-
 
         return json_encode([
             'offset' => $newOffset,
@@ -70,50 +88,22 @@ class MessageController extends AppController
     /**
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function index()
+    public function index($user = null)
     {
-        $user = null;
-        if($this->request->has('user')) {
-            $user = $this->userRepository->findByIdUsername(e($this->request->query('user')));
-            if(!$user)
-                return redirect()->route('messages');
-            if($user->id == $this->user->id)
-                return redirect()->route('messages');
-        } else {
-            $lastConversation = $this->conversationRepository->lastConversation();
-            if ($lastConversation) {
-                $user = $lastConversation->present()->theUser();
-                $this->messageRepository->markAllByUser($user->id);
-            }
-        }
+        $this->setTitle(trans('message.messages'));
 
-        $this->theme->set('title', trans('message.messages'));
-        $this->asset()->container('footer')
-            ->add('messages', 'assets/js/messages.js', ['main']);
         $conversations = $this->conversationRepository->listAll();
-        if($this->request->ajax()) {
-            $response  = [];
-            if($user) {
-                $messages = $this->messageRepository->getNewList($user->id, 5);
-                if(!$messages->isEmpty()) {
-                    if ($messages->count() > 5) {
-                        $response['page'] = $messages->currentPage() + 1;
-                        $response['Messages'] = view('messages.thread', ['messages' => $messages, 'contact' => $user])->render();
-                    } else {
-                        $response['Messages'] = array();
-                        foreach ($messages as $message) {
-                            array_push($response['Messages'], view('messages.message', ['message' => $message, 'contact' => $user])->render());
-                        }
-                    }
-                }
+
+        if($user) {
+            if($user == $this->user) {
+                \Flash::error('Invalid user');
+                return redirect()->route('messages');
             }
-            return $response;
+            $messages = $this->messageRepository->getList($user->id);
         }
-        return $this->theme->of('messages.index', [
-            'conversations' => $conversations,
-            'contact'       => $user,
-            'messages'      => ($user) ? $this->messageRepository->getList($user->id) : []
-        ])->render();
+        $response = $this->render('messages.index', compact('messages', 'user', 'conversations'));
+        if($this->request->ajax()) $response = $this->render('messages.thread', compact('messages', 'user'));
+        return $response;
     }
 
     public function setOnlineStatus()

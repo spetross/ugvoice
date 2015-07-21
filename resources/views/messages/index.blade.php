@@ -140,98 +140,30 @@
         left: auto
     }
 </style>
-<h5 class="row-title before-sky">Messages inbox</h5>
-<div id="message-notify"></div>
+
+@extends('user.layout')
 
 @if(!$conversations->isEmpty())
 
-    <div class="ui stackable grid">
-        <div class="five wide left column">
-            <div class="sticky" data-uk-sticky="{top:100}">
-                <div class="ui fluid vertical pointing menu">
-                    <div class="item">
-                        <div class="ui transparent icon input">
-                            <input placeholder="Search messages..." type="text">
-                            <i class="search icon"></i>
-                        </div>
-                    </div>
-                    @foreach($conversations as $conversation)
-                        <a
-                                href="{{ route('messages', ['user' => $conversation->present()->theUser()->present()->getId()]) }}"
-                                class="{{ (isset($contact) and $contact->id == $conversation->present()->theUser()->id) ? 'active' : null}} item">
-                            <h6 class="ui small header">
-                                <img class="ui avatar image" src="{{ $conversation->present()->theUser()->present()->getAvatar(50) }}">
-                                <div class="content" style="width: calc(100% - 50px)">
-                                    {{ $conversation->present()->theUser()->present()->fullName() }}
-                                    <?php $count = app('app\\Repositories\\MessageRepository')->countUnreadFrom($conversation->present()->theUser()->id)?>
-                                    @if($count)
-                                        <div class="ui teal pointing left small label uk-float-right">{{ $count }}</div>
-                                    @endif
-                                </div>
-                            </h6>
-                        </a>
-                    @endforeach
-                </div>
-            </div>
+    @section('aside')
+        <div class="uk-text-left">
+            @include('messages.conversations')
         </div>
-        <div class="eleven wide right column">
-            @if(Request::has('user'))
-                <div class="chat-messages" id="thread-container">
-                    <div class="ui top attached purple segment messages-contact">
-                        <div class="contact-avatar">
-                            <img src="{{ $contact->getAvatar(100) }}">
-                        </div>
-                        <div class="contact-info">
-                            <div class="contact-name">{{ ucwords($contact->name) }}</div>
-                            <div class="contact-status">
-                                @if($contact->active)
-                                    <div class="online"></div>
-                                    <div class="status">online</div>
-                                @else
-                                    <div class="offline"></div>
-                                    <div class="status">offline</div>
-                                @endif
-                            </div>
-                            <div class="last-chat-time">
-                                a moment ago
-                            </div>
-                            <div class="back">
-                                <a href="{{ route('messages') }}">
-                                    <i class="icon arrow left icon"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <form method="post" class="ui clearing attached segment padding-5 send-message form">
-                        <input type="hidden" name="user_id" value="{{ $contact->id }}">
-                        <div class="field">
-                            <textarea name="message" rows="2" class="auto text" placeholder="Type your message here"></textarea>
-                        </div>
-                        <div class="field">
-                            <button type="submit" class="ui right floated positive send button">
-                                <i class="mail send icon"></i> Send
-                            </button>
-                        </div>
-                    </form>
-                    <div class="ui attached piled segment">
-                        @include('messages.thread',compact('contact', 'messages'))
-                    </div>
-                    @if($messages->hasMorePages())
-                        <div class="ui bottom attached fluid paging button" data-offset>Load old messages</div>
-                    @endif
-                </div>
-
-            @else
-
-            @endif
-        </div>
-    </div>
-
-@else
-
-    <div class="ui info message">
-        <p> You do not have any messages</p>
-    </div>
+    @overwrite
 
 @endif
+
+@section('content')
+
+    @if($conversations->isEmpty() or !isset($user))
+
+        <div class="ui info message">
+            <p>{{ trans('site.texts.no_messages') }}</p>
+        </div>
+    @else
+        <div class="" style="max-width: 500px">
+            @include('messages.thread')
+        </div>
+    @endif
+@stop
 

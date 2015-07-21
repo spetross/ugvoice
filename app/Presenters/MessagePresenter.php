@@ -1,5 +1,5 @@
 <?php
-namespace app\Presenters;
+namespace App\Presenters;
 
 use Laracasts\Presenter\Presenter;
 
@@ -40,7 +40,7 @@ class MessagePresenter extends Presenter
         $text = nl2br($this->entity->text);
 
         //turn links to clickable
-        $text = app('app\\Repositories\\PostRepository')->turnLinks($text);
+        $text = app('App\\Repositories\\PostRepository')->turnLinks($text);
 
         return \Hook::fire('post-text', $text);
     }

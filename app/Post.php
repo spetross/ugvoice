@@ -1,10 +1,10 @@
-<?php namespace app;
+<?php namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * app\Post
+ * App\Post
  *
  * @property integer $id
  * @property integer $user_id
@@ -19,22 +19,22 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $deleted_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\app\File[] $pictures
- * @property-read \Illuminate\Database\Eloquent\Collection|\app\Comment[] $comments
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\File[] $pictures
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $comments
  * @property-read \config('auth.model $user
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereOrganisationId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post wherePostType($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereHasImages($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereTitle($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereContent($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereLink($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post wherePrivate($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereHideIdentity($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereDeletedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Post whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereOrganisationId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post wherePostType($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereHasImages($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereLink($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post wherePrivate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereHideIdentity($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post whereUpdatedAt($value)
  */
 class Post extends Model
 {
@@ -47,12 +47,12 @@ class Post extends Model
 
     public function pictures()
     {
-        return $this->morphMany('app\File', 'attachable');
+        return $this->morphMany('App\File', 'attachable');
     }
 
     public function comments()
     {
-        return $this->hasMany('app\Comment');
+        return $this->hasMany('App\Comment');
     }
 
     public function timestamp()

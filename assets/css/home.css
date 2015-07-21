@@ -1,29 +1,112 @@
 
-.home .header.uk-block {
-    background: #0fb492 url(../img/topography3.jpg);
+.home .intro.uk-block {
+    text-align: center;
+}
+.intro.slider.uk-block .pager.block, 
+.intro.slider.uk-block .slide {
+    height: 300px;
+}
+.tab-pager {
+    list-style: none;
+}
+.tab-pager li {
+    float: none;
     position: relative;
-    height: 480px;
-    border-bottom: solid 10px rgba(221, 221, 221, 0.4);
+    margin-bottom: -1px;
+}
+.tab-pager > li > a {
+    display: block;
+    line-height: 40px;
+    padding: 0 0 0 15px;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 !important;
+    border-left: 1px solid #fff;
+    border-radius: 0 !important;
+    text-align: left;
+    text-shadow: none;
+}
+.tab-pager > li > a .icon {
+  margin-right: 10px !important;
+  opacity: 0.8 !important;
 }
 
-.home .header.uk-block #header-cover {
-    background: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    top: 0;
-    height: 480px;
-    width: 100%;
+.tab-pager > li.uk-active > a {
+  border: 1px solid #fff;
+  border-left: none;
+  color: #fff;
 }
 
-.home .header.uk-block .left {
-    padding-left: 0;
+.tab-pager > li > a:hover,
+.tab-pager > li.uk-active > a:hover {
+    color: #fff;
+    text-decoration: none;
 }
 
-.home .header.uk-block .right {
-    height: 360px;
-    position: relative;
+.tab-pager:after, 
+.tab-pager:before {
+  content: "";
+  display: block;
+  border-left: 1px solid #fff;
+  height: 30px;
+  visibility: visible;
 }
 
-.home .header.uk-block .title {
+@media (max-width: 991px) {
+    .intro.uk-block .main.container {
+        padding-top: 70px;
+    }
+    .tab-pager > li > a {
+        text-align: center;
+        width: 50px;
+        padding: 0;
+        font-size: 14px;
+    }
+    .tab-pager > li > a .icon {
+        margin: 0;
+    }
+    .tab-pager > li > a span {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .intro.uk-block .main.container {
+        padding-top: 0px;
+    }
+
+    .tab-pager:before, 
+    .tab-pager:after {
+        display: none;
+    }
+    .tab-pager > li > a {
+        text-align: center;
+        width: 35px;
+        line-height: 30px;
+        padding: 0;
+    }
+    .ui.pager.menu active.item {
+        padding-left: 0 !important;
+    }
+    .tab-pager > li > a .icon {
+        margin: 0;
+    }
+    .tab-pager > li > a span {
+        display: none;
+    }
+}
+.uk-switcher > .slide {
+    display: none;
+}
+.uk-switcher > .slide.uk-active {
+    display: block;
+    height: 300px;
+}
+
+
+
+.home .intro.uk-block  .title {
     color: #000000;
     font-family: Tahoma, Segoe UI, Arial, sans-serif;
     color: white;
@@ -33,12 +116,12 @@
     margin-top: 10px;
 }
 
-.home .header.uk-block .ui.header > .content,
-.home .header.uk-block .ui.header > .content .sub.header {
+.home .intro.uk-block .ui.header > .content,
+.home .intro.uk-block .ui.header > .content .sub.header {
     color: #FFFFFF !important;
 }
 
-.home .header.uk-block .welcome-notes .header .icon.bordered {
+.home .intro.uk-block  .welcome-notes .header .icon.bordered {
     width: 80px;
     height: 80px;
     border-radius: 10px;
@@ -51,104 +134,11 @@
     color: #FFFFFF;
 }
 
-#signup-form-modal .uk-modal-dialog {
-    max-width: 450px;
-}
-
-.home .header.uk-block .right .signup-form {
-    background: rgba(15, 180, 146, 0.9);
-    color: #FFFFFF;
-    padding: 10px 10px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-}
-
-.home .header.uk-block .right .signup-form .title {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.home .header.uk-block .login-social-links a {
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-}
-
-.home .header.uk-block .login-social-links a:hover {
-    opacity: 0.7;
-}
-
-.home .header.uk-block .login-social-links .facebook {
-    border: solid 1px #4B77BE;
-    background: #4B77BE;
-    color: #ffffff;
-}
-
-.home .header.uk-block .login-social-links .facebook:hover {
-    background: #FFFFFF;
-    color: #4B77BE;
-}
-
-.home .header.uk-block .login-social-links .twitter {
-    background: #3498DB;
-    border: solid 1px #3498DB;
-    color: #ffffff;
-}
-
-.home .header.uk-block .login-social-links .twitter:hover {
-    background: #ffffff;
-    color: #3498DB;
-}
-
-.home .header.uk-block .login-social-links .google {
-    border: solid 1px #F25757;
-    background: #F25757;
-    color: #ffffff;
-}
-
-.home .header.uk-block .login-social-links .google:hover {
-    background: #FFFFFF;
-    color: #F25757;
-}
-
-.home .header.uk-block .login-social-links .email {
-    border: solid 1px #F56F6C;
-    background: #F56F6C;
-    color: #FFFFFF;
-}
-
-.home .header.uk-block .login-social-links .email:hover {
-    background: #F4D03F;
-    color: #FFFFFF;
-}
-
-@media (max-width: 767px) {
-    .home .header.uk-block {
-        height: auto;
-        padding-top: 0;
+@media (min-width: 767px) {
+    .intro.uk-block {
+        min-height: 400px;
     }
-
-    .home .header.uk-block .uk-container {
-        width: 100%;
+    .intro.uk-block + .content.uk-block {
+        margin-top: 347px;
     }
-
-    .home .header.uk-block .left, .home .header.uk-block .right {
-        width: 100%;
-        height: auto;
-        padding: 0;
-        margin: 0;
-    }
-
-    #header-cover {
-        height: 100% !important
-    }
-}
-
-.home #home-clients-block {
-    background: #E2E2E2;
-    border-bottom: solid 10px #D9D9D9;
 }

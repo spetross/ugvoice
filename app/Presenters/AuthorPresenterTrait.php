@@ -1,9 +1,9 @@
-<?php namespace app\Presenters;
+<?php namespace App\Presenters;
 
 /**
  * Trait AuthorPresenterTrait
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Presenters
+ * @package App\Presenters
  */
 trait AuthorPresenterTrait
 {

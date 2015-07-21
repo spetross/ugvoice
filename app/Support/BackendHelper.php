@@ -1,4 +1,4 @@
-<?php namespace app\Support;
+<?php namespace App\Support;
 
 use Redirect;
 use Request;
@@ -6,7 +6,7 @@ use Request;
 /**
  * Backend Helper
  *
- * @package app\Support
+ * @package App\Support
  * @author Petross Simon
  */
 class BackendHelper

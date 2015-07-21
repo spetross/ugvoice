@@ -1,4 +1,4 @@
-<nav class="main uk-navbar uk-navbar-attached" data-uk-sticky="{media: 640}">
+<nav class="main uk-navbar uk-navbar-attached">
     <div class="uk-container uk-container-center">
 
         <a class="uk-navbar-brand uk-hidden-small" href="{{ url('/') }}" style="margin-right: 40px">

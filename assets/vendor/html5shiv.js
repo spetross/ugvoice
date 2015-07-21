@@ -16,7 +16,7 @@
     /** Not all elements can be cloned in IE **/
     var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
 
-    /** Detect whether the browser supports default html5 styles */
+    /** Detect whether the browser supports sem-ui html5 styles */
     var supportsHtml5Styles;
 
     /** Name of the expando, to work with multiple documents or to re-shiv one document */
@@ -293,7 +293,7 @@
         'shivMethods': (options.shivMethods !== false),
 
         /**
-         * A string to describe the type of `html5` object ("default" or "default print").
+         * A string to describe the type of `html5` object ("sem-ui" or "sem-ui print").
          * @memberOf html5
          * @type String
          */

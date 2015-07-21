@@ -135,18 +135,18 @@ return [
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
 
-        'app\Providers\FilesystemServiceProvider',
+        'App\Providers\FilesystemServiceProvider',
         'Teepluss\Theme\ThemeServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
 
         /*
          * Application Service Providers...
          */
-        'app\Providers\AppServiceProvider',
-        //'app\Providers\BusServiceProvider',
-        //'app\Providers\ConfigServiceProvider',
-        'app\Providers\EventServiceProvider',
-        'app\Providers\RouteServiceProvider',
+        'App\Providers\AppServiceProvider',
+        //'App\Providers\BusServiceProvider',
+        //'App\Providers\ConfigServiceProvider',
+        'App\Providers\EventServiceProvider',
+        'App\Providers\RouteServiceProvider',
 
     ],
 
@@ -197,7 +197,7 @@ return [
         'View' => 'Illuminate\Support\Facades\View',
 
         'Theme' => 'Teepluss\Theme\Facades\Theme',
-        'Flash' => 'app\Support\Facades\Flash',
+        'Flash' => 'App\Support\Facades\Flash',
         'Form' => 'Illuminate\Html\FormFacade',
 
     ],

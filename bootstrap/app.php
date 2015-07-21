@@ -39,17 +39,17 @@ $app = new AppKernel(
 
 $app->singleton(
     'Illuminate\Contracts\Http\Kernel',
-    'app\Http\Kernel'
+    'App\Http\Kernel'
 );
 
 $app->singleton(
     'Illuminate\Contracts\Console\Kernel',
-    'app\Console\Kernel'
+    'App\Console\Kernel'
 );
 
 $app->singleton(
     'Illuminate\Contracts\Debug\ExceptionHandler',
-    'app\Exceptions\Handler'
+    'App\Exceptions\Handler'
 );
 
 /*

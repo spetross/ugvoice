@@ -1,10 +1,10 @@
-<?php namespace app;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 
 /**
- * app\Message
+ * App\Message
  *
  * @property integer $id
  * @property string $text
@@ -18,20 +18,20 @@ use Laracasts\Presenter\PresentableTrait;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property string $deleted_at
- * @property-read \app\\Models\\User $senderUser
- * @property-read \app\\Models\\User $receiverUser
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereText($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereSender($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereReceiver($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereImage($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereConversationId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereSenderStatus($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereReceiverStatus($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereSeen($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Message whereDeletedAt($value)
+ * @property-read \App\\Models\\User $senderUser
+ * @property-read \App\\Models\\User $receiverUser
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereText($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereSender($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereReceiver($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereImage($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereConversationId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereSenderStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereReceiverStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereSeen($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Message whereDeletedAt($value)
  */
 class Message extends Model
 {
@@ -39,20 +39,20 @@ class Message extends Model
 
     protected $table = "messages";
 
-    protected $presenter = "app\\Presenters\\MessagePresenter";
+    protected $presenter = "App\\Presenters\\MessagePresenter";
 
     public function senderUser()
     {
-        return $this->belongsTo('app\\User', 'sender');
+        return $this->belongsTo('App\\User', 'sender');
     }
 
     public function receiverUser()
     {
-        return $this->belongsTo('app\\User', 'receiver');
+        return $this->belongsTo('App\\User', 'receiver');
     }
 
     public function image()
     {
-        return $this->morphOne('app\File', 'attachable');
+        return $this->morphOne('App\File', 'attachable');
     }
 }

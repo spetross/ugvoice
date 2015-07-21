@@ -1,10 +1,10 @@
-<?php namespace app\Traits;
+<?php namespace App\Traits;
 
 
 /**
  * Trait FilesTrait
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Models\Traits
+ * @package App\Models\Traits
  */
 
 trait FilesTrait

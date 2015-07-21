@@ -1,8 +1,8 @@
-<?php namespace app\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 
-use app\Repositories\FileRepository;
-use app\Repositories\UserRepository;
+use App\Repositories\FileRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 class UserController extends AppController
@@ -17,10 +17,7 @@ class UserController extends AppController
         $this->userProvider = $userRepository;
         $this->filesProvider = $fileRepository;
         if (\Auth::check()) {
-            $this->theme->layout('user.private');
-            $this->theme->share('user', \Auth::user());
-        } else {
-            $this->theme->layout('user.public');
+
         }
         $this->asset()->add('profile', 'assets/css/profile.css');
     }
@@ -32,14 +29,14 @@ class UserController extends AppController
      */
     public function profile()
     {
-        return $this->theme->of('user.profile', ['user' => \Auth::user()])->render();
+        return $this->render('user.profile', ['user' => $this->request->user()]);
     }
 
     public function edit()
     {
         $this->asset()->add('redactor', 'assets/vendor/redactor/redactor.css');
         $this->asset()->add('redactor', 'assets/vendor/redactor/redactor.min.js', ['jquery']);
-        return $this->theme->of('user.edit')->render();
+        return $this->theme->of('user.edit', ['user' => $this->request->user()])->render();
     }
 
     public function privacy()

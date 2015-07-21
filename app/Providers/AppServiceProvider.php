@@ -1,8 +1,8 @@
-<?php namespace app\Providers;
+<?php namespace App\Providers;
 
-use app\Support\BackendHelper;
-use app\Support\FlashBag;
-use app\Support\NavigationManager;
+use App\Support\BackendHelper;
+use App\Support\FlashBag;
+use App\Support\NavigationManager;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'Illuminate\Contracts\Auth\Registrar',
-            'app\Services\Registrar'
+            'App\Services\Registrar'
         );
 
         if ($this->app->environment() == 'local') {

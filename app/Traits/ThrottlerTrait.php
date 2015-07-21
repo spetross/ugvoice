@@ -1,12 +1,12 @@
-<?php namespace app\Traits;
+<?php namespace App\Traits;
 
-use app\Exceptions\UserBannedException;
-use app\Exceptions\UserSuspendedException;
+use App\Exceptions\UserBannedException;
+use App\Exceptions\UserSuspendedException;
 
 /**
  * Trait ThrottlerTrait
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Models\Traits
+ * @package App\Models\Traits
  */
 trait ThrottlerTrait
 {
@@ -23,7 +23,7 @@ trait ThrottlerTrait
     /**
      * Returns the associated user with the throttler.
      *
-     * @return \app\Contracts\Users\UserInterface
+     * @return \App\Contracts\Users\UserInterface
      */
     public function getUser()
     {

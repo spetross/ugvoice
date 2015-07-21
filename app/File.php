@@ -1,7 +1,7 @@
-<?php namespace app;
+<?php namespace App;
 
-use app\Support\BrokenImage;
-use app\Support\Resizer;
+use App\Support\BrokenImage;
+use App\Support\Resizer;
 use File as FileHelper;
 use Illuminate\Database\Eloquent\Model;
 use Storage;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\File\File as FileObj;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * app\File
+ * App\File
  *
  * @property integer $id
  * @property string $disk_name
@@ -27,20 +27,20 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @property \Carbon\Carbon $updated_at
  * @property-read \ $attachable
  * @property-read mixed $extension
- * @method static \Illuminate\Database\Query\Builder|\app\File whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereDiskName($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereFileName($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereFileSize($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereContentType($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereTitle($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereField($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereAttachableId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereAttachableType($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereIsPublic($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereSortOrder($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\File whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereDiskName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereFileName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereFileSize($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereContentType($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereField($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereAttachableId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereAttachableType($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereIsPublic($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereSortOrder($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\File whereUpdatedAt($value)
  * @property-read mixed $path
  */
 class File extends Model

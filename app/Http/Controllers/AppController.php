@@ -1,6 +1,6 @@
-<?php namespace app\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use app\Exceptions\ValidationException;
+use App\Exceptions\ValidationException;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Exception\HttpResponseException;
@@ -22,7 +22,7 @@ abstract class AppController extends BaseController
         $this->params = null;
         $this->request = $this->getRouter()->getCurrentRequest();
         $this->title = ucfirst(last($this->request->segments()));
-        $this->theme = \Theme::theme(config('site.theme', 'default'))
+        $this->theme = \Theme::theme(config('site.theme', 'semui'))
             ->layout($this->layout);
     }
 
@@ -107,11 +107,19 @@ abstract class AppController extends BaseController
      */
     protected function render($view, $data = array())
     {
-        if ($this->request->ajax())
-            $this->theme->layout('ajax');
-        $this->theme->set('title', $this->title);
+        if ($this->request->ajax()) $this->setlayout('ajax');
         return $this->theme
-            ->watch($view, $data)->render();
+            ->of($view, $data)->render();
+    }
+
+    protected function setlayout($layout = 'default', $bodyClass = null)
+    {
+        $this->theme->layout($layout)->set('bodyClass', $bodyClass);
+    }
+
+    protected function setTitle($title)
+    {
+        $this->theme->set('title', $title);
     }
 
     /**

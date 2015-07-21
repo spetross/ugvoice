@@ -1,5 +1,5 @@
 <?php
-namespace app;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Group
  *
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Models
+ * @package App\Models
  * @property integer $id
  * @property string $name
  * @property string $description
@@ -16,13 +16,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\static::$userModel[] $users
- * @method static \Illuminate\Database\Query\Builder|\app\Group whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Group whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Group whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Group wherePermissions($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Group whereIsNewUserDefault($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Group whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Group whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Group whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Group whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Group whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Group wherePermissions($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Group whereIsNewUserDefault($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Group whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Group whereUpdatedAt($value)
  */
 class Group extends Model
 {
@@ -31,7 +31,7 @@ class Group extends Model
 
     public static $name = "group";
 
-    protected static $userModel = 'app\User';
+    protected static $userModel = 'App\User';
 
     protected static $userGroupsPivot = 'users_groups';
 

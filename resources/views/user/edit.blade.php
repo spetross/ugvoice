@@ -15,6 +15,10 @@ $uploadConfig = [
     }
 </style>
 
+@extends('user.layout')
+
+@section('content')
+
 <div class="form-errors margin-bottom-10">
     @include('layout.flash')
 </div>
@@ -207,5 +211,7 @@ $uploadConfig = [
         $('#form-field-user-bio').redactor();
     })
 </script>
+
+@stop
 
 

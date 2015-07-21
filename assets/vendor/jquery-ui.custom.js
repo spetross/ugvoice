@@ -5915,8 +5915,8 @@
         _createHandles: function () {
             var i, handleCount,
                 options = this.options,
-                existingHandles = this.element.find(".ui-slider-handle").addClass("ui-state-default ui-corner-all"),
-                handle = "<span class='ui-slider-handle ui-state-default ui-corner-all' tabindex='0'></span>",
+                existingHandles = this.element.find(".ui-slider-handle").addClass("ui-state-sem-ui ui-corner-all"),
+                handle = "<span class='ui-slider-handle ui-state-sem-ui ui-corner-all' tabindex='0'></span>",
                 handles = [];
 
             handleCount = ( options.values && options.values.length ) || 1;

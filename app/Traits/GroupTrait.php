@@ -1,11 +1,11 @@
-<?php namespace app\Traits;
+<?php namespace App\Traits;
 
-use app\Exceptions\GroupExistsException;
+use App\Exceptions\GroupExistsException;
 
 /**
  * Trait GroupTrait
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Models\Traits
+ * @package App\Models\Traits
  */
 trait GroupTrait
 {

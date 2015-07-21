@@ -1,6 +1,6 @@
-<?php namespace app\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use app\Organisation;
+use App\Organisation;
 
 class HomeController extends AppController
 {
@@ -12,9 +12,9 @@ class HomeController extends AppController
      */
     public function index()
     {
-        $this->title = 'Home';
-        $this->layout = 'blank';
-        $this->asset()->add('home_style', 'assets/css/home.css', ['uikit']);
+        $this->setTitle('Home');
+        $this->setLayout('blank', 'home');
+        $this->asset()->add('home-style', 'assets/css/home.css', ['theme']);
         $this->asset()->container('footer')->add('uk-grid', 'assets/library/uikit/js/components/grid.js', ['uikit']);
         return $this->render('home', ['featured_clients' => Organisation::all()->take(4)]);
     }

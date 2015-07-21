@@ -1,12 +1,12 @@
-<?php namespace app\Handlers\Events;
+<?php namespace App\Handlers\Events;
 
-use app\Exceptions\LoginRequiredException;
-use app\Exceptions\PasswordRequiredException;
-use app\Exceptions\UserNotActivatedException;
-use app\Exceptions\UserNotFoundException;
-use app\Repositories\GroupRepository as GroupProvider;
-use app\Repositories\ThrottleRepository as ThrottleProvider;
-use app\Repositories\UserRepository as UserProvider;
+use App\Exceptions\LoginRequiredException;
+use App\Exceptions\PasswordRequiredException;
+use App\Exceptions\UserNotActivatedException;
+use App\Exceptions\UserNotFoundException;
+use App\Repositories\GroupRepository as GroupProvider;
+use App\Repositories\ThrottleRepository as ThrottleProvider;
+use App\Repositories\UserRepository as UserProvider;
 
 class Throttler
 {

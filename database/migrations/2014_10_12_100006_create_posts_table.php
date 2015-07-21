@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->boolean('has_images')->default(false);
             $table->string('title')->nullable();
             $table->text('content');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->boolean('private')->default(false);
             $table->boolean('hide_identity')->default(false);
             $table->softDeletes();

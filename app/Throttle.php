@@ -1,10 +1,10 @@
-<?php namespace app;
+<?php namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * app\Throttle
+ * App\Throttle
  *
  * @property integer $id
  * @property integer $user_id
@@ -16,15 +16,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $suspended_at
  * @property \Carbon\Carbon $banned_at
  * @property-read \static::$userModel $user
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereIpAddress($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereAttempts($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereSuspended($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereBanned($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereLastAttemptAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereSuspendedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Throttle whereBannedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereIpAddress($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereAttempts($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereSuspended($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereBanned($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereLastAttemptAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereSuspendedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Throttle whereBannedAt($value)
  */
 class Throttle extends Model
 {
@@ -66,7 +66,7 @@ class Throttle extends Model
      *
      * @var string
      */
-    protected static $userModel = 'app\User';
+    protected static $userModel = 'App\User';
 
     /**
      * Attempt limit.

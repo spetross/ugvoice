@@ -1,4 +1,4 @@
-<?php namespace app\Support;
+<?php namespace App\Support;
 
 use FilesystemIterator;
 use Illuminate\Filesystem\Filesystem as FilesystemBase;

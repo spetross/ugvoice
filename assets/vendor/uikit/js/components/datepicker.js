@@ -485,7 +485,7 @@
         // format function strings
             formatFunctions = {},
 
-        // default relative time thresholds
+        // sem-ui relative time thresholds
             relativeTimeThresholds = {
                 s: 45,  // seconds to minute
                 m: 45,  // minutes to hour
@@ -636,7 +636,7 @@
             lists = ['months', 'monthsShort', 'weekdays', 'weekdaysShort', 'weekdaysMin'];
 
         // Pick the first defined of two or three arguments. dfl comes from
-        // default.
+        // sem-ui.
         function dfl(a, b, c) {
             switch (arguments.length) {
                 case 2:
@@ -1657,7 +1657,7 @@
                     // local weekday -- counting starts from begining of week
                     weekday = w.e + dow;
                 } else {
-                    // default to begining of week
+                    // sem-ui to begining of week
                     weekday = dow;
                 }
             }
@@ -1669,7 +1669,7 @@
 
         // convert an array to a date.
         // the array should mirror the parameters below
-        // note: all values past the year are optional and will default to the lowest possible value.
+        // note: all values past the year are optional and will sem-ui to the lowest possible value.
         // [year, month, day , hour, minute, second, millisecond]
         function dateFromConfig(config) {
             var i, date, input = [], currentDate, yearToUse;
@@ -1699,10 +1699,10 @@
             }
 
             // Default to current date.
-            // * if no year, month, day of month are given, default to today
-            // * if day of month is given, default month and year
-            // * if month is given, default only year
-            // * if year is given, don't default anything
+            // * if no year, month, day of month are given, sem-ui to today
+            // * if day of month is given, sem-ui month and year
+            // * if month is given, sem-ui only year
+            // * if year is given, don't sem-ui anything
             for (i = 0; i < 3 && config._a[i] == null; ++i) {
                 config._a[i] = input[i] = currentDate[i];
             }
@@ -2267,7 +2267,7 @@
         // version number
         moment.version = VERSION;
 
-        // default format
+        // sem-ui format
         moment.defaultFormat = isoFormat;
 
         // constant that refers to the ISO standard
@@ -3164,7 +3164,7 @@
          ************************************/
 
 
-            // Set default locale, other locale will inherit from English.
+            // Set sem-ui locale, other locale will inherit from English.
         moment.locale('en', {
             ordinal: function (number) {
                 var b = number % 10,

@@ -1,13 +1,13 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
-use app\Exceptions\ValidationException;
-use app\File;
+use App\Exceptions\ValidationException;
+use App\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class FileRepository
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Repositories
+ * @package App\Repositories
  */
 class FileRepository
 {
@@ -22,7 +22,7 @@ class FileRepository
     /**
      * @param $id
      * @param array $attributes
-     * @return \app\File
+     * @return \App\File
      */
     public function findById($id, $attributes = ['*'])
     {
@@ -31,7 +31,7 @@ class FileRepository
 
     /**
      * @param $name
-     * @return mixed|\app\File
+     * @return mixed|\App\File
      */
     public function findByDiskName($name)
     {

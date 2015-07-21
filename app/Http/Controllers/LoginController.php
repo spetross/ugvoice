@@ -1,5 +1,6 @@
-<?php namespace app\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
+use App\Exceptions\LoginFailedException;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Http\Request;
@@ -60,11 +61,13 @@ class LoginController extends AppController
             }
             if ($this->auth->attempt($credentials, $request->has('remember'))) {
                 return redirect()->intended($this->redirectPath());
+            } else {
+                throw new LoginFailedException($loginFailed);
             }
         } catch (\Exception $ex) {
             \Flash::error($ex->getMessage());
             if ($request->ajax()) {
-                return ['success' => false];
+                return ['error' => $ex->getMessage()];
             }
             return redirect()
                 ->back()

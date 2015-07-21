@@ -9,14 +9,14 @@
         </a>
     </div>--}}
     <div class="card">
-        <a class="image" href="{{ action('Clients\ClientController@home', $client->slug) }}">
+        <a class="image" href="{{ route('client.home', $client->slug) }}">
             <img src="{{ $client->logo ? $client->logo->path : asset('assets/img/placeholder.svg') }}"
                  alt="{{ $client->name }}">
         </a>
 
         <div class="content" style="text-align:center">
             <a class="header"
-               href="{{ action('Clients\ClientController@home', $client->slug) }}">{{ $client->name }}</a>
+               href="{{ route('client.home', $client->slug) }}">{{ $client->name }}</a>
         </div>
     </div>
 @empty

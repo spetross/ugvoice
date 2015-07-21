@@ -1,12 +1,12 @@
 <?php
-namespace app\Presenters;
+namespace App\Presenters;
 
 use Laracasts\Presenter\Presenter;
 
 /**
  * Class MessageConversationPresenter
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Presenters
+ * @package App\Presenters
  */
 class MessageConversationPresenter extends Presenter
 {

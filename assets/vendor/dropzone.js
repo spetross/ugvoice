@@ -403,7 +403,7 @@
                      Those functions register themselves to the events on init and handle all
                      the user interface specific stuff. Overwriting them won't break the upload
                      but can break the way it's displayed.
-                     You can overwrite them if you don't like the default behavior. If you just
+                     You can overwrite them if you don't like the sem-ui behavior. If you just
                      want to add an additional event handler, register it on the dropzone object
                      and don't overwrite those options.
                      */
@@ -701,7 +701,7 @@
                         this.element.setAttribute("enctype", "multipart/form-data");
                     }
                     if (this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message")) {
-                        this.element.appendChild(Dropzone.createElement("<div class=\"dz-default dz-message\"><span>" + this.options.dictDefaultMessage + "</span></div>"));
+                        this.element.appendChild(Dropzone.createElement("<div class=\"dz-sem-ui dz-message\"><span>" + this.options.dictDefaultMessage + "</span></div>"));
                     }
                     if (this.clickableElements.length) {
                         setupHiddenFileInput = (function (_this) {

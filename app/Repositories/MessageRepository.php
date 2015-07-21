@@ -1,14 +1,14 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
-use app\Message;
+use App\Message;
 use Illuminate\Events\Dispatcher;
 
 /**
  * Class MessageRepository
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Repositories
+ * @package App\Repositories
  */
 class MessageRepository
 {
@@ -64,7 +64,7 @@ class MessageRepository
     public function canSendEachOther($userid, $fromUserid)
     {
         //we need to check the user privacy also on who can send message to user
-        $user = app('app\\Repositories\\UserRepository')->findById($userid);
+        $user = app('App\\Repositories\\UserRepository')->findById($userid);
 
         if (!$user->present()->canSendMessage()) return false;
         return true;

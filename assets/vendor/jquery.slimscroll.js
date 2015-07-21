@@ -30,7 +30,7 @@
                 // distance in pixels between the side edge and the scrollbar
                 distance: '1px',
 
-                // default scroll position on load - top / bottom / $('selector')
+                // sem-ui scroll position on load - top / bottom / $('selector')
                 start: 'top',
 
                 // sets scrollbar opacity

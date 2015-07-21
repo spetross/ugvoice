@@ -1,9 +1,9 @@
-<?php namespace app;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * app\Report
+ * App\Report
  *
  * @property integer $id
  * @property integer $user_id
@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $reason
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\app\Report whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Report whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Report whereUrl($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Report whereType($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Report whereReason($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Report whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\Report whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Report whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Report whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Report whereUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Report whereType($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Report whereReason($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Report whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Report whereUpdatedAt($value)
  */
 class Report extends Model
 {

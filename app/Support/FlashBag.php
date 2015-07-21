@@ -1,4 +1,4 @@
-<?php namespace app\Support;
+<?php namespace App\Support;
 
 use Illuminate\Support\MessageBag;
 
@@ -6,7 +6,7 @@ use Illuminate\Support\MessageBag;
  * @author Petross Simon <ssemwezi.s@gmail.com>
  *
  * Class FlashBag
- * @package app\Services
+ * @package App\Services
  */
 class FlashBag extends MessageBag
 {
@@ -143,7 +143,7 @@ class FlashBag extends MessageBag
      *
      * @param  string $key
      * @param  string $message
-     * @return \app\\Services\FlashBag
+     * @return \App\\Services\FlashBag
      */
     public function add($key, $message)
     {

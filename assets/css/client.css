@@ -1,0 +1,81 @@
+@import "components/timeline.css";
+
+.social-feed-box {
+  border: 1px solid #e7eaec;
+  background: #fff;
+  margin-bottom: 15px !important;
+}
+
+.social-feed-box .widget-body {
+    padding: 0;
+}
+.social-feed-box p {
+    
+}
+.social-avatar .header,
+.social-comment .content{
+    display: table-cell;
+    vertical-align: top;
+    width: 10000px;
+}
+.article .social-feed-box {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+.article .social-feed-box:last-child {
+  margin-bottom: 0;
+  border-bottom: 1px solid #e7eaec;
+}
+
+.social-action {
+  margin: 15px;
+}
+.social-avatar {
+  padding: 15px 15px 0 15px;
+}
+.social-comment .social-comment {
+  margin-left: 45px;
+}
+.social-avatar img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+.social-avatar .header a {
+  font-size: 14px;
+  display: block;
+}
+.social-body {
+  padding: 15px;
+}
+.social-body img {
+  margin-bottom: 10px;
+}
+.social-footer {
+  border-top: 1px solid #e7eaec;
+  padding: 10px 15px;
+  background: #f9f9f9;
+}
+.social-footer.no-comments {
+    border: none;
+    padding: 0;
+}
+.social-footer .social-comment img {
+  width: 32px;
+  margin-right: 10px;
+}
+.social-footer .social-comment p {
+    font-style: italic;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+.social-comment:first-child {
+  margin-top: 0;
+}
+.social-comment {
+  margin-top: 15px;
+}
+.social-comment textarea {
+  font-size: 12px;
+}

@@ -1,11 +1,11 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
-use app\Throttle;
+use App\Throttle;
 
 /**
  * Class ThrottleRepository
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Repositories
+ * @package App\Repositories
  */
 class ThrottleRepository
 {
@@ -43,10 +43,10 @@ class ThrottleRepository
     /**
      * Finds a throttler by the given Model.
      *
-     * @param \app\Models\User $user
+     * @param \App\Models\User $user
      * @param string $ipAddress
      *
-     * @return \app\Models\Throttle
+     * @return \App\Models\Throttle
      */
     public function findByUser($user, $ipAddress = null)
     {
@@ -78,7 +78,7 @@ class ThrottleRepository
      * @param mixed $id
      * @param string $ipAddress
      *
-     * @return \app\Contracts\Throttle\ThrottleInterface
+     * @return \App\Contracts\Throttle\ThrottleInterface
      */
     public function findByUserId($id, $ipAddress = null)
     {
@@ -91,7 +91,7 @@ class ThrottleRepository
      * @param string $login
      * @param string $ipAddress
      *
-     * @return \app\Contracts\Throttle\ThrottleInterface
+     * @return \App\Contracts\Throttle\ThrottleInterface
      */
     public function findByUserLogin($login, $ipAddress = null)
     {

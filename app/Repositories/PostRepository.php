@@ -1,6 +1,6 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
-use app\Post;
+use App\Post;
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
@@ -8,7 +8,7 @@ use Illuminate\Filesystem\Filesystem;
 /**
  * Class PostRepository
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Repositories
+ * @package App\Repositories
  */
 class PostRepository
 {
@@ -40,7 +40,7 @@ class PostRepository
      * Method to find a post by its ID
      *
      * @param int $id
-     * @return \app\Models\Post
+     * @return \App\Models\Post
      */
     public function findById($id)
     {

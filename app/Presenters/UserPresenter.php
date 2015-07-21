@@ -1,4 +1,4 @@
-<?php namespace app\Presenters;
+<?php namespace App\Presenters;
 
 use Laracasts\Presenter\Presenter;
 
@@ -6,7 +6,7 @@ use Laracasts\Presenter\Presenter;
 /**
  * Class UserPresenter
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Presenters
+ * @package App\Presenters
  */
 class UserPresenter extends Presenter
 {
@@ -76,6 +76,12 @@ class UserPresenter extends Presenter
         $history = $this->entity->actions()->get();
 
         return $this->presenter->decorate($history);
+    }
+
+    public function isAuthor()
+    {
+        $author = app('App\\Repositories\\GroupRepository')->findByName('Author');
+        return $this->entity->inGroup($author);
     }
 
 

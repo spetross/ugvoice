@@ -6,7 +6,7 @@
  * Time: 2:03 PM
  */
 
-namespace app\Support\Facades;
+namespace App\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -16,7 +16,7 @@ class BackendMenu extends Facade
      * Get the registered name of the component.
      *
      * Resolves to:
-     * - app\Services\NavigationManager
+     * - App\Services\NavigationManager
      *
      * @return string
      */

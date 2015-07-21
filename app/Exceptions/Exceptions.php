@@ -1,10 +1,10 @@
-<?php namespace app\Exceptions;
+<?php namespace App\Exceptions;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class LoginRequiredException extends \UnexpectedValueException
-{
-}
+class LoginFailedException extends \Exception{}
+
+class LoginRequiredException extends \UnexpectedValueException{}
 
 class PasswordRequiredException extends \UnexpectedValueException
 {

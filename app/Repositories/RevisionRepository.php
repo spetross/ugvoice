@@ -1,12 +1,12 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
 
-use app\Revision;
+use App\Revision;
 
 /**
  * Class RevisionRepository
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Repositories
+ * @package App\Repositories
  */
 class RevisionRepository
 {

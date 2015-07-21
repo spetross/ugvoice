@@ -1,5 +1,4 @@
-
-.profile-container .profile-header {
+.client-container .client-header {
     min-height: 130px;
     margin: 15px 15px 0;
     /*
@@ -10,7 +9,7 @@
     */
 }
 
-.profile-container .profile-header .header-avatar {
+.client-container .client-header .header-avatar {
     width: 125px;
     height: 125px;
     -webkit-border-radius: 50%;
@@ -26,45 +25,45 @@
     margin: 25px auto
 }
 
-.profile-container .profile-header .profile-info {
+.client-container .client-header .client-info {
     min-height: 130px;
     border-right: 1px solid #eee;
     padding: 15px 40px 35px 0
 }
 
-.profile-container .profile-header .profile-info .header-fullname {
+.client-container .client-header .client-info .header-fullname {
     font: 21px 'Roboto', 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
     margin-top: 27px;
     display: inline-block
 }
 
-.profile-container .profile-header .profile-info .btn-follow {
+.client-container .client-header .client-info .btn-follow {
     position: absolute;
     top: 45px;
     right: 40px
 }
 
-.profile-container .profile-header .profile-info .header-information {
+.client-container .client-header .client-info .header-information {
     line-height: 23px;
     margin-top: 15px;
     text-align: justify
 }
 
-.profile-container .profile-header .profile-stats {
+.client-container .client-header .client-stats {
     border-right: 1px solid #eee;
     padding: 15px 40px 35px 0
 }
 
-.profile-container .profile-header .profile-stats .stats-col {
+.client-container .client-header .client-stats .stats-col {
     margin: 30px 0;
     text-align: center
 }
 
-.profile-container .profile-header .profile-stats .stats-col:not(:last-child) {
+.client-container .client-header .client-stats .stats-col:not(:last-child) {
     border-right: 1px solid #eee
 }
 
-.profile-container .profile-header .profile-stats .stats-col .stats-value {
+.client-container .client-header .client-stats .stats-col .stats-value {
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -72,13 +71,13 @@
     font-family: 'Roboto', 'Lucida Sans', 'trebuchet MS', Arial, Helvetica
 }
 
-.profile-container .profile-header .profile-stats .stats-col .stats-title {
+.client-container .client-header .client-stats .stats-col .stats-title {
     display: block;
     margin: 0 auto;
     text-align: center
 }
 
-.profile-container .profile-header .profile-stats .inlinestats-col {
+.client-container .client-header .client-stats .inline-stats-col {
     padding-top: 15px;
     text-align: center;
     font-family: 'Roboto', 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
@@ -86,20 +85,20 @@
     min-height: 55px
 }
 
-.profile-container .profile-header .profile-stats .inlinestats-col:not(:last-child) {
+.client-container .client-header .client-stats .inline-stats-col:not(:last-child) {
     border-right: 1px solid #eee
 }
 
-.profile-container .profile-header .profile-stats .inlinestats-col i {
+.client-container .client-header .client-stats .inline-stats-col i {
     margin-right: 2px
 }
 
-.profile-container .profile-header .profile-contactinfo .title {
+.client-container .client-header .client-contact-info .title {
     margin-bottom: 5px;
     margin-top: 30px
 }
 
-.profile-container .profile-header .profile-contactinfo .list-group-item {
+.client-container .client-header .client-contact-info .list-group-item {
     background: none !important;
     border: none;
     padding-bottom: 0;
@@ -108,7 +107,7 @@
     padding-right: 5px
 }
 
-.profile-container .profile-body .nav-tabs > li.active > a, .profile-container .profile-body .nav-tabs > li.active > a:hover, .profile-container .profile-body .nav-tabs > li.active > a:focus {
+.client-container .client-body .nav-tabs > li.active > a, .client-container .client-body .nav-tabs > li.active > a:hover, .client-container .client-body .nav-tabs > li.active > a:focus {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -119,7 +118,7 @@
     margin-bottom: 0
 }
 
-.profile-container .profile-body .nav-tabs {
+.client-container .client-body .nav-tabs {
     border-top: 1px solid #e5e5e5;
     top: 0;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .35);
@@ -127,26 +126,26 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, .35)
 }
 
-.profile-container .profile-body .nav-tabs.tabs-flat {
+.client-container .client-body .nav-tabs.tabs-flat {
     background-color: #fbfbfb
 }
 
-.profile-container .profile-body .tab-content {
+.client-container .client-body .tab-content {
     margin-top: 30px;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .35);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .35);
     box-shadow: 0 1px 2px rgba(0, 0, 0, .35)
 }
 
-.profile-container .profile-body .setting-header {
+.client-container .client-body .setting-header {
     margin-bottom: 25px
 }
 
-.profile-container .profile-contacts {
+.client-container .client-contacts {
     padding: 25px
 }
 
-.profile-container .profile-contacts .contact-badge i {
+.client-container .client-contacts .contact-badge i {
     width: 50px;
     height: 50px;
     line-height: 50px;
@@ -164,17 +163,17 @@
     color: #444
 }
 
-.profile-container .profile-contacts .contact-badge span {
+.client-container .client-contacts .contact-badge span {
     font-size: 26px;
     margin-left: 20px;
     font-weight: 300
 }
 
-.profile-container .profile-contacts .contact-info p {
+.client-container .client-contacts .contact-info p {
     padding: 10px 70px
 }
 
-.profile-container #contact-map {
+.client-container #contact-map {
     margin: 20px;
     width: 400px;
     height: 400px;
@@ -189,7 +188,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, .3)
 }
 
-.profile-container .profile-badge i {
+.client-container .client-badge i {
     width: 50px;
     height: 50px;
     line-height: 50px;
@@ -207,45 +206,45 @@
     color: #444
 }
 
-.profile-container .profile-badge span {
+.client-container .client-badge span {
     font-size: 26px;
     margin-left: 20px;
     font-weight: 300
 }
 
-.profile-container .profile-overview {
+.client-container .client-overview {
     padding: 5px
 }
 
-.profile-container .row-title {
+.client-container .row-title {
     margin-left: -17px;
     margin-top: 50px
 }
 
-.profile-container .timeline {
+.client-container .timeline {
     padding-top: 35px;
     margin-top: -16px
 }
 
-.profile-container .profile-header .profile-stats {
+.client-container .client-header .client-stats {
     position: absolute !important;
     bottom: 0;
 }
 
 @media (max-width: 992px) {
-    .profile-container .profile-header .profile-info {
+    .client-container .client-header .client-info {
         padding: 0 40px
     }
 
-    .profile-container .profile-header .profile-info .btn-follow {
+    .client-container .client-header .client-info .btn-follow {
         top: 28px
     }
 
-    .profile-container .profile-header .profile-stats {
+    .client-container .client-header .client-stats {
         position: relative !important;
     }
 
-    .profile-container .profile-header .profile-stats .stats-col {
+    .client-container .client-header .client-stats .stats-col {
         border-right: 0
     }
 

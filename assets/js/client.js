@@ -5,75 +5,100 @@ app.posts.ready = function () {
 
     var
         $postForm = $('.ui.post.form'),
-        $postsContainer = $('.posts.timeline'),
-        $commentForm = $(".ui.comment.reply.form"),
+        $postsContainer = $('#social-feed-wrapper'),
+        $commentForm = $(".ui.comment.form"),
+        refreshInterval = 30,
+        $submitButton,
         handler;
 
 
     handler = {
 
         initPostForm: function () {
-            var $postsContainer = $('.posts.timeline');
-            var $formWrapper = $('li.post.form').removeClass('hidden');
-            $formWrapper.prependTo($postsContainer);
-            var $postForm = $('.ui.post.form');
-            $postForm.api({
+            var $textArea = $postForm.find('textarea.auto.text');
+            $textArea.on('focus', function () {
+                autosize($textArea);
+                $postForm.find('.field.form-actions').show();
+            });
+
+            var $resetButton    = $('.ui.reset.button', $postForm);
+            $resetButton.on('click', function() {
+                $postForm.form('clear');
+                autosize.destroy($textArea);
+                $postForm.find('.field.form-actions').hide();
+            });
+
+            $submitButton   = $('.ui.submit.button', $postForm);
+            $submitButton.api({
                 method: 'POST',
                 dataType: 'json',
-                action: 'add post',
                 serializeForm: true,
                 beforeSend: function (settings) {
                     if (handler.isPosting()) return false;
+                    settings.url = $(this).data('url');
                     handler.postingStatus();
                     return settings;
                 },
-                onSuccess: function (response, element) {
-                    handler.removePostingStatus();
-                    if (response.Post) {
-                        console.log(response.Post);
-                        $postsContainer.prepend(response.Post);
-                        $(this).form('clear');
+                onSuccess: function (response) {
+                    if (response['Post']) {
+                        $postsContainer.prepend(response['Post']);
+                        $postForm.form('clear');
                         setTimeout(function () {
-                            handler.initPostForm();
                             handler.init();
-                            handler.destroyTextarea($postForm)
                         }, 0)
                     }
+                    handler.removePostingStatus();
+                },
+                onError : function() {
+                    handler.removePostingStatus();
                 }
             })
         },
 
         initCommentForm: function () {
-            var $commentForm = $(".ui.comment.reply.form");
-            $commentForm.form({
-                fields: {
-                    post_comment: {
-                        identifier: 'Post[comment]',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'Please enter your comment'
-                            }
-                        ]
-                    }
-                }
+
+            $commentForm = $(".ui.comment.form");
+
+            $('.comment.input', $commentForm).on('focus', function () {
+                $commentForm = $(this).closest('.ui.form');
+                $(this).hide();
+                var $textArea = $commentForm.find('.comment.text').removeClass('uk-hidden').focus();
+                autosize($textArea);
+                $commentForm.find('.form-actions').removeClass('uk-hidden');
             });
-            $commentForm.api({
-                method: 'POST',
-                dataType: 'json',
-                action: 'add comment',
-                serializeForm: true,
+
+            $('.reset.button', $commentForm).on('click', function () {
+                $commentForm = $(this).closest('.ui.form');
+                var $textArea =  $commentForm.find('textarea').addClass('uk-hidden');
+                autosize.destroy($textArea);
+                $commentForm.form('reset');
+                $commentForm.find('.form-actions').addClass('uk-hidden');
+                $commentForm.find('.comment.input').show();
+            });
+
+            $submitButton = $('.comment.submit.button');
+
+
+            $submitButton.api({
+                method          : 'put',
+                dataType        : 'json',
+                serializeForm   : true,
+                beforeSend      : function (settings) {
+                    settings.url = $(this).data('action');
+                    return settings;
+                },
                 onSuccess: function (response, element) {
-                    var
-                        post = $(this).data('post'),
-                        $postWrapper = $(this).closest("#post-" + post),
-                        $commentsWrapper = $postWrapper.find('.ui.comments');
-                    if (response.commentsCount) {
-                        $postWrapper.find('.comments_count .detail').html(response.commentsCount)
+                    var post = $(this).data('post'),
+                        $commentForm = $(this).closest('form'),
+                        $postWrapper = $('.widget#post-'+post),
+                        $commentsWrapper = $postWrapper.find('div.comments');
+                    if (response['comment_count']) {
+                        $postWrapper.find('.comments_count').html(response['comment_count'])
                     }
-                    if (response.Comment) {
-                        $commentsWrapper.append(response.Comment);
-                        $(this).form('clear');
+                    if (response['Comment']) {
+                        $commentForm.form('clear');
+                        $commentsWrapper.append(response['Comment']);
+                        $postWrapper.data('offset', response['offset'])
                         setTimeout(function () {
                             handler.init();
                             handler.destroyTextarea($commentForm)
@@ -81,6 +106,98 @@ app.posts.ready = function () {
                     }
                 }
             })
+        },
+        'refreshWidgets' : function () {  
+            $.each($('.widget.social-feed-box'), function (index, element) {
+                var el = $(element);
+                handler.getComments(el, refreshInterval*1000);
+                refreshInterval = refreshInterval + 10;
+            })
+        },
+        getPosts: function (intervel) {
+            if(!$postsContainer.length) return;
+            setInterval(function () {
+                $.ajax({
+                    url : $postsContainer.data('url'),
+                    type: 'post',
+                    dataType: 'json',
+                    on: 'now',
+                    data : {
+                        offset : $postsContainer.data('offset')
+                    },
+                    onSuccess: function (data) {
+                        if (data['Posts']) {
+                            $.each(data['Posts'], function (index, post) {
+                                $postsContainer.prepend(post);
+                            });
+                            setTimeout(function () {
+                                handler.init();
+                                handler.refreshWidgets();
+                            }, 0)
+                        }
+                    }
+                });
+
+            }, intervel);
+        },
+        getComments: function (widget, interval) {
+            setInterval(function () {
+                $.ajax({
+                    url: widget.data('url'),
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                      offset: widget.data('offset')
+                    },
+                    success: function (data) {
+                        widget.find('.post_likes').html(data['post_likes']);
+                        widget.find('.comments_count').html(data['comments_count']);
+                        if (data['comments']) {
+                            $.each(data['comments'], function appendComments(index, comment) {
+                                widget.find('.social-footer .comments').append(comment);
+                            });
+                            widget.data('offset', data['offset']);
+                            setTimeout(function () {
+                                handler.init()
+                            }, 0)
+                        }
+                    }
+                });
+            }, interval);
+        },
+        deleteComment : function (comment, url) {
+            var $comment = $('#comment-'+comment);
+            var deleteBtn = $comment.find(".comment.delete.button");
+            deleteBtn.api({
+                method: 'delete',
+                dataType: 'json',
+                url: url,
+                on: 'now',
+                onSuccess: function (response) {
+                    var post = deleteBtn.data('post'),
+                        $postWrapper = deleteBtn.closest("#post-" + post);
+                    if (response['comment_count']) {
+                        $postWrapper.find('.comments_count').html(response['comment_count'])
+                    }
+                    $comment.remove();
+                }
+            })
+        },
+
+        deletePost : function (post, url) {
+            var $postWidget = $('.widget#post-'+post);
+            var $deleteButton =  $(".post.delete.button", $postWidget);
+            $deleteButton
+                .api({
+                    method: 'delete',
+                    dataType: 'json',
+                    url : url,
+                    on: 'now',
+                    onSuccess: function () {
+                        $postWidget.remove();
+                    }
+                })
+            ;
         },
 
         loadMoreComments: function (target, caller) {
@@ -152,6 +269,9 @@ app.posts.ready = function () {
         destroyTextarea: function (form) {
             var txt = form.find('.auto.text');
             autosize.destroy(txt);
+            txt.addClass('uk-hidden');
+            form.find('.comment.input').show();
+            form.find('.comment.text').addClass('uk-hidden');
             form.find('.form-actions').addClass('uk-hidden').fadeOut();
             form.form('reset')
         },
@@ -187,55 +307,6 @@ app.posts.ready = function () {
             $("span.timeago").timeago();
 
         },
-        refreshPosts: function (intervel) {
-            setInterval(function () {
-                $.api({
-                    action: 'refresh posts',
-                    method: 'POST',
-                    dataType: 'json',
-                    on: 'now',
-                    beforeSend: function (settings) {
-                        if (handler.isPosting()) {
-                            return false
-                        }
-                        return settings;
-                    },
-                    onSuccess: function (data) {
-                        var $postsContainer = $('.posts.timeline');
-                        if (data['Posts']) {
-                            $.each(data['Posts'], function (index, post) {
-                                $postsContainer.prepend(post);
-                            });
-                            setTimeout(function () {
-                                handler.init();
-                            }, 0)
-                        }
-                    }
-                });
-
-            }, intervel);
-        },
-        refreshComments: function (intervel) {
-            setInterval(function () {
-                $(".post.comments").api({
-                    action: 'refresh comments',
-                    method: 'GET',
-                    dataType: 'html',
-                    on: 'now',
-                    beforeSend: function (settings) {
-                        return settings;
-                    },
-                    onSuccess: function (data) {
-                        $(this).html(data);
-                        setTimeout(function () {
-                            handler.init();
-                        }, 0)
-                    }
-                });
-
-            }, intervel);
-
-        },
         init: function () {
             handler.paginatePosts();
             handler.initCommentForm();
@@ -245,35 +316,12 @@ app.posts.ready = function () {
             $('.ui.dropdown').dropdown();
 
             $('.reset.button').on('click', function () {
-                handler.destroyTextarea($(this).closest('form'));
+                //handler.destroyTextarea($(this).closest('form'));
             });
 
-            $('.auto.text').on('focus', function () {
-                handler.createTextarea($(this));
-            });
 
-            $(".comments .actions .delete")
-                .api({
-                    method: 'delete',
-                    dataType: 'json',
-                    action: 'delete comment',
-                    beforeSend: function (settings) {
-                        if (confirm("Sure to delete this comment")) {
-                            return settings
-                        }
-                        return false;
-                    },
-                    onSuccess: function () {
-                        var post = $(this).data('post'),
-                            $postWrapper = $(this).closest("#post-" + post),
-                            comment = $(this).data('id');
-                        if (response.commentsCount) {
-                            $postWrapper.find('.comments_count .detail').html(response.commentsCount)
-                        }
-                        $("#comment-" + comment).remove();
-                    }
-                })
-            ;
+
+
 
             $('.post.image', $postsContainer)
                 .visibility({
@@ -282,58 +330,40 @@ app.posts.ready = function () {
                     duration: 1000
                 })
             ;
-
-            $(".post.delete", $postsContainer)
-                .api({
-                    method: 'delete',
-                    dataType: 'json',
-                    action: 'delete post',
-                    beforeSend: function (settings) {
-                        if (confirm("Sure to delete your post")) {
-                            return settings
-                        }
-                        return false;
-                    },
-                    onSuccess: function () {
-                        var post = $(this).data('id');
-                        $("#post-" + post).remove();
-                    }
-                })
-            ;
         }
     };
 
+    app.posts = handler;
+
     handler.init();
     handler.initPostForm();
-    handler.refreshPosts(45000);
+    handler.refreshWidgets();
+    handler.getPosts(1000*(refreshInterval+20));
 
-    /*
-     $('.client #tabbed-nav-menu > .item')
+/**
+    $('#client-nav-menu .right.menu > .item')
      .tab({
-     context : '#right-content',
-     auto    : true,
-     history : true,
-     path    : pageUrl,
-     cache   : false,
-     alwaysRefresh : true,
-     onLoad  : function (tabPath) {
-     handler.init()
-     }
+         context : '#main-content',
+         auto    : true,
+         history : true,
+         path    : pageUrl,
+         cache   : false,
+         alwaysRefresh : true,
+         onLoad  : function (tabPath) {
+             handler.initPostForm();
+             handler.init();
+             if(isLoggedIn) $('[data-control="fileupload"]').fileUploader();
+             UIkit.grid('[data-uk-grid]', {gutter: 5});
+             UIkit.tab("[data-uk-tab]");
+         }
      })
-     ;
-     */
-    $('.client .ui.right.sticky')
-        .sticky({
-            offset: 50,
-            context: '#main-container'
-        })
-    ;
+     ; **/
 
     $(document).on('click', '.button.load-more-comments', function () {
         handler.loadMoreComments($($(this).data('target')), $(this));
         return false;
     })
-}
+};
 
 $(document)
     .ready(app.posts.ready)

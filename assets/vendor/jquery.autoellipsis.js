@@ -51,7 +51,7 @@
     var liveUpdaterRunning = false;
 
     /**
-     * Set of default settings.
+     * Set of sem-ui settings.
      *
      * @type {Object.<string, string>}
      * @private
@@ -67,7 +67,7 @@
      *
      * @param {string} selector the inner selector of elements that ellipsis may work on. Inner elements not referred to by this
      *      selector are left untouched.
-     * @param {Object.<string, string>=} options optional options to override default settings.
+     * @param {Object.<string, string>=} options optional options to override sem-ui settings.
      * @return {jQuery} the current jQuery object for chaining purposes.
      * @this {jQuery} the current jQuery object.
      */
@@ -82,10 +82,10 @@
             selector = undefined;
         }
 
-        // Create the settings from the given options and the default settings.
+        // Create the settings from the given options and the sem-ui settings.
         settings = $.extend({}, defaultSettings, options);
 
-        // If selector is not set, work on immediate children (default behaviour).
+        // If selector is not set, work on immediate children (sem-ui behaviour).
         settings.selector = selector;
 
         // Do ellipsis on each subject element.

@@ -1,4 +1,4 @@
-<?php namespace app\Traits;
+<?php namespace App\Traits;
 
 use DB;
 use Event as LaravelEvent;

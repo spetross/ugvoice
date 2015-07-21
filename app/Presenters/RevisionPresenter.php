@@ -1,4 +1,4 @@
-<?php namespace app\Presenters;
+<?php namespace App\Presenters;
 
 use Exception;
 use Illuminate\Contracts\Auth\Guard;
@@ -7,7 +7,7 @@ use Laracasts\Presenter\Presenter;
 /**
  * Class RevisionPresenter
  * @author Petross Simon <ssemwezi.s@gmail.com>
- * @package app\Presenters
+ * @package App\Presenters
  */
 class RevisionPresenter extends Presenter
 {
@@ -33,7 +33,7 @@ class RevisionPresenter extends Presenter
      *
      * @param Guard $auth
      * @param \SebastianBergmann\Diff\Differ $differ
-     * @param \app\Contracts\Revision\RevisionInterface $resource
+     * @param \App\Contracts\Revision\RevisionInterface $resource
      *
      */
     public function __construct(Guard $auth, Differ $differ, $resource)

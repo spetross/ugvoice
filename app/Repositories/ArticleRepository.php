@@ -1,6 +1,6 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories;
 
-use app\Article;
+use App\Article;
 use Carbon\Carbon;
 
 class ArticleRepository

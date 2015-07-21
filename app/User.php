@@ -1,4 +1,4 @@
-<?php namespace app;
+<?php namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Laracasts\Presenter\PresentableTrait;
 
 /**
- * app\User
+ * App\User
  *
  * @property integer $id
  * @property string $email
@@ -37,31 +37,31 @@ use Laracasts\Presenter\PresentableTrait;
  * @property-read \Illuminate\Database\Eloquent\Collection|\config('credentials.revision[] $revisions
  * @property-read mixed $photo
  * @property-read mixed $name
- * @property-read \Illuminate\Database\Eloquent\Collection|\app\Article[] $articles
- * @property-read \app\Organisation $organisation
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Article[] $articles
+ * @property-read \App\Organisation $organisation
  * @property-read \Illuminate\Database\Eloquent\Collection|\static::$groupModel[] $groups
- * @method static \Illuminate\Database\Query\Builder|\app\User whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereUsername($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User wherePassword($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User wherePermissions($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereVerified($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereVerificationCode($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereActive($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereLastActiveTime($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereLastLogin($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereActivated($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereFirstName($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereLastName($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereGenre($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereBio($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereProfileDetails($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User wherePrivacyInfo($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereOrganisationId($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereRememberToken($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\app\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePermissions($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereVerified($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereVerificationCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereActive($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereLastActiveTime($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereLastLogin($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereActivated($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereFirstName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereLastName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereGenre($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereBio($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereProfileDetails($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePrivacyInfo($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereOrganisationId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereDeletedAt($value)
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -80,12 +80,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public static $name = 'user';
 
 
-    protected static $groupModel = 'app\Group';
+    protected static $groupModel = 'App\Group';
 
 
     protected static $userGroupsPivot = "users_groups";
 
-    protected $presenter = "app\\Presenters\\UserPresenter";
+    protected $presenter = "App\\Presenters\\UserPresenter";
 
     protected $dates = [
         'last_login',
@@ -178,7 +178,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function avatar()
     {
-        return $this->morphOne('app\File', 'attachable');
+        return $this->morphOne('App\File', 'attachable');
     }
 
     public function getPhotoAttribute()
@@ -208,12 +208,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function articles()
     {
-        return $this->hasMany('app\Article');
+        return $this->hasMany('App\Article');
     }
 
     public function organisation()
     {
-        return $this->belongsTo('app\Organisation');
+        return $this->belongsTo('App\Organisation');
     }
 
 }
